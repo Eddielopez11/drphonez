@@ -1,12 +1,12 @@
 
 
 <div class="grid wrapper-custom">
-  <div class="grid__item large--nine-twelfths push--large--one-twelfth">
+  <div class="grid__item large--nine-twelfths push--large--one-twelfth medium-down--eleven-twelfths">
     <h1 class="page-mainHeader text-center">{{ page.title }} Repairs</h1>
     <div class="grid-uniform collections-wrapper flex-wrapper">
 
       {% for collection in collections %}
-          <div class="grid__item large--one-quarter medium--one-half">
+          <div class="grid__item large--one-quarter medium-down--one-half">
 
           {% if collection.title contains page.title %}
             <a href="{{collection.url}}" class="grid__image">
@@ -14,6 +14,7 @@
               <h4 class="text-center">{{collection.title}}</h4>
             </a>
           {% endif %}
+          
           </div>
       {% endfor %}
 
