@@ -6,158 +6,84 @@
   More info on global variables (available on all templates):
     - http://docs.shopify.com/themes/liquid-variables/global
 {% endcomment %}
+<div class="index-wrapper">
 
-<h2>{{ 'homepage.sections.frontpage_title' | t }}</h2>
+  <div id="indexCarousel" class="index--carousel-container">
 
-{% comment %}
-  Use class grid-uniform to have evenly sized columns clear
-  each other properly at each breakpoint.
-{% endcomment %}
-<div class="grid-uniform">
 
-  {% comment %}
-    Loop through products in your Frontpage collection.
-    This collection is created by default, but you must add products to it.
-  {% endcomment %}
-  {% for product in collections.frontpage.products limit:4 %}
-
-    {% comment %}
-      Change the grid item width by using classes from the grid in
-      the grid_item_width variable.
-
-      Example:
-        - {% assign grid_item_width = 'large--one-third medium--one-half' %}
-    {% endcomment %}
-    {% assign grid_item_width = 'large--one-quarter medium--one-half' %}
-    {% include 'product-grid-item' %}
-
-  {% else %}
-    {% comment %}
-      For onboarding new users to your theme, we add some default products and onboarding tutorials to help populate their store
-    {% endcomment %}
-    {% unless emptyState %}
-      {{ 'theme-onboarding.css' | global_asset_url | stylesheet_tag }}
-      {% assign emptyState = true %}
-    {% endunless %}
-
-    {% include 'onboarding-featured-products' %}
-
-  {% endfor %}
-
-</div>
-
-<hr>
-
-<h2>{{ 'homepage.sections.featured_title' | t }}</h2>
-
-<div class="grid-uniform">
-
-  {% comment %}
-    Show five collections, unless it's 'frontpage'.
-
-    Use an index variable in combination to the limit filter
-    to account for the frontpage collection being in top six returned.
-
-    Use variable isEmpty to check if no collections will be shown.
-    For empty store demo only.
-  {% endcomment %}
-  {% assign index = 1 %}
-  {% assign isEmpty = true %}
-
-  {% for collection in collections limit:6 %}
-    {% unless index > 5 %}
-
-      {% unless collection.handle == 'frontpage' %}
-        {% assign isEmpty = false %}
-        {% assign collection_item_width = 'large--one-fifth medium--one-third' %}
-        <div class="grid__item {{ collection_item_width }} text-center">
-          {% comment %}
-            Use capture to put the collection title in a variable that is used in liquid filters
-          {% endcomment %}
-          {% capture collection_title %}{{ collection.title | escape }}{% endcapture %}
-
-          <a href="{{ collection.url }}" title="{{ 'collections.general.link_title' | t: title: collection_title }}" class="grid__image">
-            {% if collection.image %}
-              {{ collection.image.src | img_url: 'large' | img_tag: collection_title }}
-            {% else %}
-              {{ collection.products.first.featured_image | img_url: 'large' | img_tag: collection_title }}
-            {% endif %}
-          </a>
-
-          <p>
-            <a href="{{ collection.url }}" title="{{ 'collections.general.link_title' | t: title: collection_title }}">{{ collection.title }}</a><br>
-            {{ 'collections.general.items_with_count' | t: count: collection.all_products_count }}
-          </p>
-        </div>
-        {% assign index = index | plus: 1 %}
-      {% endunless %}
-
-    {% endunless %}
-  {% endfor %}
-
-  {% comment %}
-    For onboarding new users to your theme, we add some default collections and onboarding tutorials to help populate their store
-  {% endcomment %}
-
-  {% if isEmpty %}
-    {% unless emptyState %}
-      {{ 'theme-onboarding.css' | global_asset_url | stylesheet_tag }}
-      {% assign emptyState = true %}
-    {% endunless %}
-
-    {% include 'onboarding-featured-collections' %}
-  {% endif %}
-
-</div>
-
-<hr>
-
-{% comment %}
-  Loop through three recent blog articles with the following code.
-
-  Since we're not on the blog template, we need to define the blog
-  handle we want to focus on. For this example we'll use the default 'news',
-  but you can create a blog page-specific content if you want.
-{% endcomment %}
-<h2>{{ 'homepage.sections.news_title' | t }}</h2>
-
-<div class="grid">
-  {% for article in blogs['news'].articles limit:3 %}
-
-    <div class="grid__item large--one-third">
-
-      <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: format: 'month_day_year' }}</time>
-      <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
-
-      {% comment %}
-        Add a surrounding div with class 'rte' to anything that will come from the rich text editor.
-        Since this is just a listing page, you can either use the excerpt or truncate the full article.
-      {% endcomment %}
-      <div class="rte">
-        {% if article.excerpt.size > 0 %}
-          {{ article.excerpt }}
-        {% else %}
-          <p>{{ article.content | strip_html | truncatewords: 20 }}</p>
-        {% endif %}
-      </div>
-
-      {% comment %}
-        Show off meta information like number of comments and tags.
-      {% endcomment %}
-      <ul>
-        {% if blog.comments_enabled? %}
-        <li>
-          <a href="{{ article.url }}#comments">
-            {{ article.comments_count }}
-            {{ 'blogs.comments.with_count' | t: count: article.comments_count }}
-          </a>
-        </li>
-        {% endif %}
-      </ul>
-
-      <p><a href="{{ article.url }}">{{ 'blogs.article.read_more' | t }} &rarr;</a></p>
-
+    <div class="slide-arrow-container slide-arrow-left">
+      <span class="slide-arrows"><</span>
+    </div>
+    <div class="slide-arrow-container slide-arrow-right">
+      <span class="slide-arrows">></span>
     </div>
 
-  {% endfor %}
+    <div class="dot--container">
+      <span id="dot1" class="dot"></span>
+      <span id="dot2" class="dot"></span>
+      <span id="dot3" class="dot"></span>
+      <span id="dot4" class="dot"></span>
+      <span id="dot5" class="dot"></span>
+    </div>
+    <div class="newsSlides slide1">
+      <a class="newsSlide-link" href="https://drphonez.com/pages/phonebulace">
+        <p class="slide-header">Phonebulance<br><span class="slide-span">Save your time, let us come to you!</span></p>
+        <img class="newsImage" src="{{ 'van.png' | asset_url }}" alt="Phonebulance Mobile phone repair van">
+      </a>
+    </div>
+    <div class="newsSlides slide2">
+      <p class="slide-header">You Can Trust Us<br><span class="slide-span">Over 40 years of combined experience.</span></p>
+      <img class="newsImage" src="{{ 'trust_us.png' | asset_url }}" alt="Tools and Desk with Phone parts">
+    </div>
+    <div class="newsSlides slide3">
+      <p class="slide-header">Laptop Problems?<br><span class="slide-span">The Doctor can help.</span></p>
+      <img class="newsImage" src="{{ 'computer_repairs.png' | asset_url }}" alt="laptop with stethoscope">
+    </div>
+    <div class="newsSlides slide4">
+      <p class="slide-header">You Are Unique<br><span class="slide-span">Your phone case should be too.</span></p>
+      <img class="newsImage" src="{{ 'case_custom.png' | asset_url }}" alt="cases with custom design and images">
+    </div>
+    <div class="newsSlides slide5">
+      <a class="newsSlide-link" href="https://drphonez.com/pages/locations">
+      <p class="slide-header">New Locations<br><span class="slide-span">For your convenience.</span></p>
+      <img class="newsImage" src="{{ 'new_location.png' | asset_url }}" alt="map with pins for new locations">
+      </a>
+    </div>
+  </div>
+
+  <div class="small--hide">
+
+  </div>
+  <div class="small--hide index-reviews">
+    <p class="index-reviews-main">Most customer satisfying repair shop in San Antonio...</p>
+    <p class="index-reviews-second">Our Reviews are our Trademark!</p>
+  </div>
+
+  <div class="grid index-policy-wrap">
+    <div class="index-protection-header">
+      <p class="index-customer-value">We Value our Customers</p>
+    </div>
+    <div class="grid__item large--one-third index-single-policy">
+      <div class="index-valuedcx-2imgdiv">
+        <img class="index-valuedcx-2img" src="{{ 'astericsrepair.jpg' | asset_url }}" alt="">
+        <img class="index-valuedcx-2img" src="{{ 'savings.png' | asset_url }}" alt="">
+      </div>
+      <p class="index-valuedcx-header">Protection That Saves</p>
+      <p class="index-valuedcx-p">For any accidents in the future, pay an extra fee when you get a screen replacement and save over 50% on your next single repair.</p>
+    </div>
+    <div class="grid__item large--one-third index-single-policy">
+      <div class="index-valuedcx-imgdiv">
+        <img class="index-valuedcx-img" src="{{ 'nurse.png' | asset_url }}" alt="">
+      </div>
+      <p class="index-valuedcx-header">Associates that Care</p>
+      <p class="index-valuedcx-p">Our associates are here to get you the best experience when you come to the Dr.</p>
+    </div>
+    <div class="grid__item large--one-third index-single-policy">
+      <div class="index-valuedcx-imgdiv">
+        <img class="index-valuedcx-img" src="{{ 'ambulance.png' | asset_url }}" alt="">
+      </div>
+      <p class="index-valuedcx-header">After-Repair Care</p>
+      <p class="index-valuedcx-p">When you work with the Dr, the Dr works for you. If you have any issues with the repair, We come to you in our Professional Phonebulance Mobile Repair Shop.</p>
+    </div>
+  </div>
 </div>

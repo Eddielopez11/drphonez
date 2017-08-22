@@ -143,11 +143,12 @@ $zindexNavDropdowns: 5;
 $zindexDrawer: 10;
 
 /*================ Typography ================*/
-
-$headerFontStack: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+/* Taken out */
+// 'HelveticaNeue', 'Helvetica Neue', Helvetica,
+$headerFontStack: Arial, sans-serif;
 $headerFontWeight: 700;
 
-$bodyFontStack: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$bodyFontStack: 'Yantramanav', sans-serif, Arial, Helvetica;
 $baseFontSize: 14px; // Henceforth known as 1em
 
 @font-face {
@@ -722,6 +723,7 @@ body {
   max-width: $siteWidth;
   margin: 0 auto;
   padding: 0 ($gutter / 2);
+  position: relative;
 
   @include at-query ($min, $small) {
     padding: 0 $gutter;
@@ -730,8 +732,8 @@ body {
 
 .main-content {
   display: block;
-  margin-top: $gutter;
-  padding-bottom: $gutter * 2;
+  margin-top: $gutter / 1.5;
+  padding-bottom: $gutter;
 }
 
 /*============================================================================
@@ -920,7 +922,7 @@ hr {
   clear: both;
   border-top: solid $colorBorder;
   border-width: 1px 0 0;
-  margin: $gutter 0;
+  margin: $gutter 0 ($gutter / 2) 0;
   height: 0;
 
   &.hr--small {
@@ -1602,13 +1604,12 @@ label.error {
 .input-group-field,
 .input-group-btn {
   display: table-cell;
-  vertical-align: middle;
   margin: 0;
 }
 
 .input-group .btn,
 .input-group .input-group-field {
-  height: 37px;
+  height: 28px;
 }
 
 .input-group .input-group-field {
@@ -1620,6 +1621,7 @@ label.error {
   white-space: nowrap;
   width: 1%;
   padding: 0;
+  margin-top: -1px
 }
 
 /*============================================================================
@@ -1719,7 +1721,7 @@ label.error {
 }
 
 .social-icons li {
-  margin: 0 ($gutter / 2) ($gutter / 2);
+  margin: 0 ($gutter / 3) ($gutter / 2);
   vertical-align: middle;
 
   @include at-query ($min, $postSmall) {
@@ -1766,7 +1768,7 @@ label.error {
   #Site Header
 ==============================================================================*/
 .site-header {
-  padding: ($gutter / 2) 0;
+  padding: 0;
 
   .grid--table {
     display: table;
@@ -1834,13 +1836,15 @@ label.error {
   #Site Nav and Dropdowns
 ==============================================================================*/
 .nav-bar {
-  background-color: $colorNav;
+  background-color: $colorSecondary;
+  position: relative;
+  margin-top: 5px;
 }
 
 .site-nav {
-  font-size: em(16px);
+  font-size: em(18px);
   cursor: default;
-  margin: 0 0 0 (-$gutter / 2);
+  margin: 0;
 
   li {
     margin: 0;
@@ -1865,14 +1869,14 @@ label.error {
 .site-nav__link {
   display: block;
   text-decoration: none;
-  padding: $gutter / 2;
+  padding: ($gutter / 4) ($gutter / 1.8);
   white-space: nowrap;
-  color: $colorNavText;
+  color: white;
 
   &:hover,
   &:active,
   &:focus {
-    color: darken($colorNavText, 15%);
+    color: black;
   }
 
   .icon-arrow-down {
@@ -1895,7 +1899,7 @@ label.error {
 .site-nav__dropdown {
   display: none;
   position: absolute;
-  left: 0;
+  left: -11px;
   margin: 0;
   z-index: $zindexNavDropdowns;
 
@@ -1906,12 +1910,13 @@ label.error {
   }
 
   a {
-    background-color: $colorNav;
+    background-color: darken($colorSecondary, 5%);
+    text-align: center;
 
     &:hover,
     &:active,
     &:focus {
-      background-color: darken($colorNav, 10%);
+
     }
   }
 }
@@ -2187,7 +2192,7 @@ label.error {
   color: $colorFooterText;
 
   @include at-query ($min, $large) {
-    padding: ($gutter * 2) 0;
+    padding: ($gutter * 1.1) 0 ($gutter / 2) 0;
   }
 }
 
@@ -2546,3 +2551,585 @@ label.error {
 }
 
 {% endif %} // settings.ajax_cart_method
+
+
+
+/*===================== Custom CSS ===================*/
+/*
+// Custom Fonts
+// font-family: 'Yantramanav', sans-serif;
+*/
+
+.wrapper-custom {
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  width: 95%;
+}
+
+/*=======================Header Custom========================*/
+
+.headerRepairs {
+  span {
+    display: block;
+    font-family: Arial;
+    font-weight: 100;
+    margin: 0;
+  }
+  .headerRepairs-successful {
+    font-size: 12px;
+  }
+  .headerRepairs-number {
+    color: $colorSecondary;
+    font-size: 40px;
+    line-height: 90%;
+  }
+}
+
+.header-callus {
+  color: black;
+  font-size: 20px;
+}
+
+/*=======================Nav Custom========================*/
+
+.loggin {
+  vertical-align: bottom;
+}
+
+.nav-links-custom {
+  color: white;
+}
+
+.nav-icons {
+  background-color: white;
+  color: {{ settings.color_footer_social_link }};
+}
+
+.desktop-cart-icon {
+  font-size: 1.5em;
+  padding-top: .3em;
+  padding-right: .5em;
+}
+
+.large--search {
+  padding-top: .4em;
+}
+
+.page-mainHeader {
+  font-weight: 100;
+  margin-bottom: 10px;
+  margin-top: 15px;
+}
+
+/*=====================Footer Custom======================*/
+
+.trademark-p {
+  display: inline-block;
+  margin: 0;
+  font-family: 'Yantramanav', sans-serif;
+  font-weight: 200;
+}
+
+.trademark-span-divider {
+  margin: 0 2.5%;
+  font-size: 18px;
+  font-weight: lighter;
+}
+
+/*======================Index Custom========================*/
+
+.index-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.index-reviews {
+  position: absolute;
+  left: 2%;
+  top: 5%;
+  width: 20%;
+}
+
+.index-reviews-main {
+  color: $colorPrimary;
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 0;
+  line-height: 1.1;
+  font-size: 30px;
+  font-family: 'Satisfy', cursive;
+}
+
+.index-reviews-second {
+  margin: 0;
+  padding: 0;
+  line-height: .99;
+  font-size: 24px;
+  font-family: 'Satisfy', cursive;
+}
+
+.index-reviews-stars {
+  margin: 0;
+  padding: 0;
+  width: 85%;
+}
+
+.index--carousel-container {
+  height: 470px;
+  @include at-query($min, 1285px) {
+    height: 700px;
+  }
+  @include at-query($max, $small) {
+    height: 200px;
+  }
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  // -webkit-box-shadow: 0 2px 15px 2px #ccc;
+  // -moz-box-shadow:    0 2px 15px 2px #ccc;
+  // box-shadow:         0 2px 15px 2px #ccc;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+  width: 60%;
+}
+
+.newsSlides {
+  display: none;
+}
+
+.newsSlide-link {
+  text-decoration: none;
+  color: black;
+}
+
+.newsSlide-link:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.slide-header {
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 65%;
+  text-align: center;
+  margin-top: 20px;
+  .slide-span {
+    font-size: 22px;
+    font-weight: 400;
+  }
+  @include at-query($max, $small) {
+    font-size: 20px;
+    .slide-span {
+      font-size: 14px;
+    }
+  }
+}
+
+.slide-arrow-container {
+  background-color: rgba(230, 230, 230, .3);
+  font-size: 100px;
+  font-weight: 900;
+  height: 100%;
+  position: absolute;
+  text-align: center;
+  width: 20%;
+  display: none;
+}
+
+.slide-arrow-container:hover {
+  display: block;
+}
+
+.slide-arrow-left {
+  left: 0px;
+}
+
+.slide-arrow-right {
+  right: 0px;
+}
+
+.slide-arrows {
+  color: white;
+}
+
+.slide1 {
+  margin: auto;
+  width: 80%;
+}
+
+.slide2 {
+  margin: auto;
+  width: 70%;
+}
+
+.newsImage {
+  max-height: 380px;
+  @include at-query($min, 1285px) {
+    max-height: 600px;
+  }
+  @include at-query($max, $small) {
+    max-height: 200px;
+  }
+  -webkit-transition:all 1.0s ease-in-out;
+  -moz-transition:all 1.0s ease-in-out;
+  -o-transition:all 1.0s ease-in-out;
+  transition:all 1.0s ease-in-out;
+  padding:0;
+  margin:0;
+  margin-top: -30px;
+  float:left;
+  width: 100%;
+}
+
+.dot--container {
+  text-align: center;
+  position: absolute;
+  top: 90%;
+  right: 45%;
+  @include at-query($max, 1025px){
+    bottom: -5px;
+    right: 46%;
+  }
+  @include at-query($max, $small){
+    bottom: -5px;
+    right: 30%;
+  }
+}
+
+.dot {
+  background-color: black;
+  border-radius: 50%;
+  display: inline-block;
+  height: 10px;
+  margin: 0 2px;
+  transition: background-color 0.6s ease;
+  width: 10px;
+}
+
+.dot--active {
+  background-color: $colorPrimary;
+}
+
+.large--inline-block {
+  @include at-query ($min, $large) {
+    display: inline-block;
+  }
+}
+
+.index-policy-wrap {
+  margin: 0;
+  margin-top: 10px;
+}
+
+.index-protection-header {
+  width: 100%;
+}
+
+.index-customer-value {
+  font-size: 60px;
+  @include at-query($max, $small) {
+    font-size: 28px;
+  }
+  font-weight: 600;
+  font-family: 'Yantramanav', sans-serif;
+  letter-spacing: 1.5px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.index-protection-img {
+
+}
+
+.index-single-policy {
+  margin-bottom: 3%;
+  padding: 0 25px;
+}
+
+.index-valuedcx-imgdiv {
+  margin: auto;
+  width: 40%;
+  @include at-query($max, $small) {
+    width: 100%;
+  }
+}
+
+.index-valuedcx-2imgdiv {
+  margin: auto;
+  width: 40%;
+  @include at-query($max, $small) {
+    width: 100%;
+  }
+}
+
+.index-valuedcx-img {
+  display: inline-block;
+  margin-left: 25%;
+  width: 48%;
+  @include at-query($max, $small) {
+    margin-left: 30%;
+    width: 40%;
+  }
+}
+
+.index-valuedcx-2img {
+  display: inline-block;
+  width: 48%;
+  @include at-query($max, $small) {
+    margin-left: 15%;
+    width: 30%;
+  }
+}
+
+.index-valuedcx-header {
+  font-size: 26px;
+  padding: 0 10%;
+  text-align: center;
+}
+
+.index-valuedcx-p {
+  font-size: 18px;
+  padding: 0 10%;
+}
+
+/*=========================About Custom=====================*/
+
+.about-main-section {
+  background-color: $colorFooterBg;
+  color: black;
+  padding: 3% 10% 5%;
+  margin-top: 30px;
+  @include at-query($max, $small) {
+    padding: 5% 15%;
+  }
+  .about-main-header{
+    text-align: center;
+    font-size: 40px;
+    font-weight: 600;
+  }
+  .about-main-p {
+    font-size: 24px;
+  }
+}
+
+/*=====================Repairs Custom=======================*/
+
+.collections-wrapper {
+  margin: 20px .6% 50px 0;
+}
+
+.collection-container {
+  display: inline-block;
+  margin: auto;
+  width: 24%;
+}
+
+.repairs-product {
+  padding: 0 20px 20px 20px;
+  height: 320px;
+  position: relative;
+  width: 25%;
+  @include at-query($max, 1025px) {
+    width: 32%;
+  }
+  @include at-query($max, $large) {
+    width: 49%;
+  }
+  @include at-query($max, $medium) {
+    width: 49%;
+  }
+  @include at-query($max, $small) {
+    width: 95%;
+  }
+}
+
+.repairs-img {
+  height: 200px;
+  padding-bottom: 15px;
+  padding-top: 50px;
+}
+
+.repair-type-img {
+  height: 230px;
+  padding-bottom: 15px;
+  padding-top: 35px;
+}
+
+.repairs-product:hover {
+  border-radius: 2px;
+  border: 1px lightgrey;
+  box-shadow: 0 5px 10px 1px lightgrey;
+}
+
+.repairs-product-typeImg {
+  position: absolute;
+  @include at-query($max, 1290px){
+    right: 10px;
+    top: 18px;
+  }
+  @include at-query($max, $small) {
+    right: 20%;
+  }
+  right: 10%;
+  top: 20px;
+  width: 80px;
+}
+
+.repairs-product-typeImg2 {
+  position: absolute;
+  @include at-query($max, 1290px){
+    right: 10px;
+    top: 88px;
+  }
+  @include at-query($max, $small) {
+    right: 20%;
+  }
+  right: 10%;
+  top: 90px;
+  width: 80px;
+}
+
+/*=======================Locations Custom========================*/
+
+.flex-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+}
+
+.maps {
+  position: relative;
+  margin: auto;
+  margin-bottom: 4%;
+  @include at-query($max, $small) {
+    width: 90%;
+  }
+  @include at-query($min, $postSmall) {
+    width: 45%;
+  }
+  @include at-query($min, 865px) {
+    width: 30%;
+  }
+}
+
+.map-info-banner {
+  background-color: $colorPrimary;
+  color: rgba(255, 255, 255, 1);
+  font-family: 'Yantramanav', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  opacity: .85;
+  width: 100%;
+}
+
+.map-info-location {
+  letter-spacing: 1.2px;
+  margin: 0;
+  opacity: 1;
+  text-align: center;
+}
+
+/*=======================Location Custom========================*/
+
+.location-pageinfo {
+  display: inline-block;
+  margin-left: 5%;
+  vertical-align: top;
+  width: 30%;
+  @include at-query($max, $medium){
+    width: 100%;
+  }
+}
+
+.location-main-header {
+  font-family: 'Yantramanav', sans-serif, Arial;
+}
+
+.location-info-headers {
+  display: block;
+  font-family:'Yantramanav', sans-serif, Arial;
+  font-size: 21px;
+  font-weight: 500;
+  margin-top: 15px;
+}
+
+.location-info {
+  display: block;
+}
+
+.location-info-days {
+  display: inline-block;
+  vertical-align: top;
+  width: 35%;
+}
+
+.location-info-hours {
+  display: inline-block;
+  vertical-align: top;
+  width: 60%;
+}
+
+.location-gmap {
+  display: inline-block;
+  margin-left: 2%;
+  width: 60%;
+  @include at-query($max, $medium){
+    margin-top: 20px;
+    width: 100%;
+  }
+}
+
+.gmap {
+  border: 0;
+  height: 500px;
+  width: 95%;
+  @include at-query($max, $medium){
+    height: 250px;
+  }
+}
+
+/*========================Support Custom=======================*/
+
+
+.support-quote {
+  font-size: 20px;
+  margin-bottom: 40px;
+  margin-top: -14px;
+}
+
+.support-form {
+  padding-right: 30px;
+}
+
+/*=====================Phonebulance Custom=========================*/
+
+.youtubevideo1 {
+  display: inline-block;
+  margin-left: 15%;
+  width: 35%;
+}
+
+.phonebulance-wrapper {
+  height: auto;
+  position: relative;
+}
+
+.phonebulance {
+  display: inline-block;
+  margin-left: 8%;
+  width: 25%;
+}
+
+.phonebulance-quote {
+  display: block;
+  width: 70%;
+  margin: 15px 15% 25px 15%;
+}
+
+
+/*=====================================Protection Program Custom===================*/

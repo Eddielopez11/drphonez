@@ -9,53 +9,86 @@
 
 {% endcomment %}
 
-<div class="grid">
+<div class="grid--full">
+  <div class="wraper-custom">
+    <h1 class="page-mainHeader text-center">{{ page.title }}</h1>
+    <p class="text-center support-quote">For any questions or help you may need, We are only a click away.</p>
 
-  <div class="grid__item large--two-thirds push--large--one-sixth">
+    <div class="location-pageinfo">
+      <h3>Customer Support</h3>
+      <span class="location-info-headers">Live Representative</span>
+      <div class="location-info-days">
+        <span class="location-info">Mon-Sat:</span>
+        <span class="location-info">Sun:</span>
+        <span class="location-info">Call:</span>
+      </div>
+      <div class="location-info-hours">
+        <span class="location-info">9:00 a.m. - 6:00 p.m.</span>
+        <span class="location-info">Noon - 6:00 p.m.</span>
+        <a href="tel:+1-888-377-8583">1-888-377-8583</a>
+      </div>
+      <span class="location-info-headers">24/7 Email Support</span>
+      <div class="location-info-days">
+        <span class="location-info">Email:</span>
+      </div>
+      <div class="location-info-hours">
+        <a href="mailto:repairs@drphonez.com">repairs@drphonez.com</a>
+      </div>
 
-    <h1>{{ page.title }}</h1>
+      <div class="">
+        <span class="location-info-headers">HQ Address:</span>
+        <span class="location-info">7317 San Pedro Ave</span>
+        <span class="location-info">San Antonio, TX 78216</span>
+        <span class="location-info">(210) 377-1010</span>
+      </div>
 
-    {% comment %}
-      Regular page content goes here.
-    {% endcomment %}
-    <div class="rte">
-      {{ page.content }}
     </div>
 
-    {% comment %}
-      Contact form starts here
-    {% endcomment %}
-    <div class="form-vertical">
-      {% form 'contact' %}
+    <div class="location-gmap">
+      {% comment %}
+        Regular page content goes here.
 
-        {% comment %}
-          Successful message
-        {% endcomment %}
-        {% if form.posted_successfully? %}
-          <p class="note form-success">
-            {{ 'contact.form.post_success' | t }}
-          </p>
-        {% endif %}
+      <div class="rte">
+        {{ page.content }}
+      </div>
+      {% endcomment %}
 
-        {{ form.errors | default_errors }}
+      {% comment %}
+        Contact form starts here
+      {% endcomment %}
+      <div class="form-vertical support-form">
+        {% form 'contact' %}
 
-        {% assign name_attr = 'contact.form.name' | t | handle %}
-        <label for="ContactFormName" class="hidden-label">{{ 'contact.form.name' | t }}</label>
-        <input type="text" id="ContactFormName" class="input-full" name="contact[{{ name_attr }}]" placeholder="{{ 'contact.form.name' | t }}" autocapitalize="words" value="{% if form[name_attr] %}{{ form[name_attr] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+          {% comment %}
+            Successful message
+          {% endcomment %}
+          {% if form.posted_successfully? %}
+            <p class="note form-success">
+              {{ 'contact.form.post_success' | t }}
+            </p>
+          {% endif %}
 
-        <label for="ContactFormEmail" class="hidden-label">{{ 'contact.form.email' | t }}</label>
-        <input type="email" id="ContactFormEmail" class="input-full" name="contact[email]" placeholder="{{ 'contact.form.email' | t }}" autocorrect="off" autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}">
+          {{ form.errors | default_errors }}
 
-        {% assign name_attr = 'contact.form.phone' | t | handle %}
-        <label for="ContactFormPhone" class="hidden-label">{{ 'contact.form.phone' | t }}</label>
-        <input type="tel" id="ContactFormPhone" class="input-full" name="contact[{{ name_attr }}]" placeholder="{{ 'contact.form.phone' | t }}" pattern="[0-9\-]*" value="{% if form[name_attr] %}{{ form[name_attr] }}{% elsif customer %}{{ customer.phone }}{% endif %}">
+          {% assign name_attr = 'contact.form.name' | t | handle %}
+          <label for="ContactFormName" class="hidden-label">{{ 'contact.form.name' | t }}</label>
+          <input type="text" id="ContactFormName" class="input-full" name="contact[{{ name_attr }}]" placeholder="{{ 'contact.form.name' | t }}" autocapitalize="words" value="{% if form[name_attr] %}{{ form[name_attr] }}{% elsif customer %}{{ customer.name }}{% endif %}">
 
-        <label for="ContactFormMessage" class="hidden-label">{{ 'contact.form.message' | t }}</label>
-        <textarea rows="10" id="ContactFormMessage" class="input-full" name="contact[body]" placeholder="{{ 'contact.form.message' | t }}">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+          <label for="ContactFormEmail" class="hidden-label">{{ 'contact.form.email' | t }}</label>
+          <input type="email" id="ContactFormEmail" class="input-full" name="contact[email]" placeholder="{{ 'contact.form.email' | t }}" autocorrect="off" autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}">
 
-        <input type="submit" class="btn right" value="{{ 'contact.form.send' | t }}">
+          {% assign name_attr = 'contact.form.phone' | t | handle %}
+          <label for="ContactFormPhone" class="hidden-label">{{ 'contact.form.phone' | t }}</label>
+          <input type="tel" id="ContactFormPhone" class="input-full" name="contact[{{ name_attr }}]" placeholder="{{ 'contact.form.phone' | t }}" pattern="[0-9\-]*" value="{% if form[name_attr] %}{{ form[name_attr] }}{% elsif customer %}{{ customer.phone }}{% endif %}">
 
-      {% endform %}
+          <label for="ContactFormMessage" class="hidden-label">{{ 'contact.form.message' | t }}</label>
+          <textarea rows="10" id="ContactFormMessage" class="input-full" name="contact[body]" placeholder="{{ 'contact.form.message' | t }}">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+
+          <input type="submit" class="btn right" value="{{ 'contact.form.send' | t }}">
+
+        {% endform %}
+      </div>
+
     </div>
 
   </div>

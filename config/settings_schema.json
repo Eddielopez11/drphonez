@@ -131,6 +131,22 @@
         "max-width": 32,
         "max-height": 32,
         "info": "32 x 32px .png required"
+      },
+      {
+        "type": "header",
+        "content": "Successful Repairs"
+      },
+      {
+        "type": "checkbox",
+        "id": "successfulrepairs_enable",
+        "label": "Use custom number"
+      },
+      {
+        "type": "text",
+        "id": "successful_repairs",
+        "label": "Custom Number",
+        "default": "185492",
+        "info": "Any Real Number, no commas or symbols"
       }
     ]
   },
@@ -199,6 +215,12 @@
         "id": "social_facebook_link",
         "label": "Facebook URL",
         "info": "https:\/\/www.facebook.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram_link",
+        "label": "Instagram URL",
+        "info": "https:\/\/www.instagram.com\/shopify"
       }
     ]
   }

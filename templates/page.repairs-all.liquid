@@ -1,0 +1,21 @@
+
+
+<div class="grid wrapper-custom">
+  <div class="grid__item">
+    <h1 class="page-mainHeader text-center">{{ page.title }}</h1>
+    <div class="grid-uniform collections-wrapper flex-wrapper">
+
+      {% for collection in collections %}
+
+      <div class="grid__item large--one-quarter medium--one-half">
+        <a href="{{collection.url}}" class="grid__image">
+          <img class="repairs-img" src="{{collection | img_url: 'large'}}" alt="">
+          <h4 class="text-center">{{collection.title}}</h4>
+        </a>
+      </div>
+
+      {% endfor %}
+
+    </div>
+  </div>
+</div>

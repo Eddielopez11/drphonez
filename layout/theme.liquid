@@ -44,6 +44,8 @@
     {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
   {% endif %}
 
+  <link href="https://fonts.googleapis.com/css?family=Yantramanav|Satisfy" rel="stylesheet">
+
 </head>
 
 {% comment %}
@@ -151,7 +153,7 @@
       <div class="wrapper">
 
         <div class="grid--full grid--table">
-          <div class="grid__item large--one-half">
+          <div class="grid__item large--one-quarter">
             {% comment %}
               Use the uploaded logo from theme settings if enabled.
               Site name gets precedence with H1 tag on homepage, div on other pages.
@@ -174,25 +176,12 @@
               </div>
             {% endif %}
           </div>
-          <div class="grid__item large--one-half large--text-right medium-down--hide">
-            {% comment %}
-              Show number of items in the cart and total cost in the /cart link
-
-              Ajax Cart Notes:
-                - #cartCount updates the total number of items in the cart
-                - #cartCost updates the total cost of the cart
-                - Documentation:  http://shopify.com/timber#ajax-cart
-            {% endcomment %}
-            <div>
-              <a href="/cart" class="site-header__cart-toggle js-drawer-open-right" aria-controls="CartDrawer" aria-expanded="false">
-                <span class="icon icon-cart" aria-hidden="true"></span>
-                {{ 'layout.cart.title' | t }}
-                (<span id="CartCount">{{ cart.item_count }}</span>
-                {{ 'layout.cart.items_count' | t: count: cart.item_count }}
-                <span id="CartCost">{{ cart.total_price | money }}</span>)
-              </a>
-            </div>
-
+          <div class="grid__item large--one-half medium-down--hide large--text-center headerRepairs">
+            <span class="headerRepairs-successful">Successful Repairs:</span>
+            <span class="headerRepairs-number" id="phonesFixed"></span>
+          </div>
+          <div class="grid__item large--one-quarter large--text-right medium-down--hide loggin">
+              <a class="header-callus" href="tel:18883778583">Call Us: (888) 377-8583</a>
             {% comment %}
               If customer accounts are enabled, provide login and create account links
             {% endcomment %}
@@ -212,19 +201,15 @@
                 {% endif %}
               </div>
             {% endif %}
-
-            <div class="site-header__search">
-              {% include 'search-bar' %}
-            </div>
           </div>
         </div>
-
       </div>
     </header>
 
     <nav class="nav-bar" role="navigation">
       <div class="wrapper">
-        <div class="medium-down--hide">
+        <div class="medium-down--hide grid--full grid--table">
+
           {% comment %}
             List out your main-menu linklist (default)
 
@@ -232,7 +217,7 @@
               - http://docs.shopify.com/themes/liquid-variables/linklists
           {% endcomment %}
           <!-- begin site-nav -->
-          <ul class="site-nav" id="AccessibleNav">
+          <ul class="site-nav grid__item large--nine-twelfths" id="AccessibleNav">
             {% for link in linklists.main-menu.links %}
               {% comment %}
                 Create a dropdown menu by naming a linklist the same as a link in the parent nav
@@ -245,7 +230,6 @@
                 <li class="site-nav--has-dropdown{% if link.active %} site-nav--active{% endif %}" aria-haspopup="true">
                   <a href="{{ link.url }}" class="site-nav__link">
                     {{ link.title }}
-                    <span class="icon icon-arrow-down" aria-hidden="true"></span>
                   </a>
                   <ul class="site-nav__dropdown">
                     {% for childlink in linklists[child_list_handle].links %}
@@ -262,6 +246,36 @@
               {% endif %}
             {% endfor %}
           </ul>
+          <div class="grid__item large--three-twelfths">
+            <div class="grid--full grid--table">
+              {% comment %}
+                Show number of items in the cart and total cost in the /cart link
+
+                Ajax Cart Notes:
+                  - #cartCount updates the total number of items in the cart
+                  - #cartCost updates the total cost of the cart
+                  - Documentation:  http://shopify.com/timber#ajax-cart
+              {% endcomment %}
+              <div class="grid__item large--four-twelfths desktop-cart-icon text-right">
+                <a href="/cart" class="site-header__cart-toggle js-drawer-open-right nav-links-custom" aria-controls="CartDrawer" aria-expanded="false">
+                  <span class="icon icon-cart" aria-hidden="true"></span>
+                  {% comment %}
+                  "cart" title
+                  {{ 'layout.cart.title' | t }}
+                  {% endcomment %}
+                  ( <span id="CartCount">{{ cart.item_count }}</span> )
+                  {% comment %}
+                  show total price
+                  {{ 'layout.cart.items_count' | t: count: cart.item_count }}
+                  <span id="CartCost">{{ cart.total_price | money }}</span>
+                  {% endcomment %}
+                </a>
+              </div>
+              <div class="grid__item large--seven-twelfths site-nav text--right large--search">
+                {% include 'search-bar' %}
+              </div>
+            </div>
+          </div>
           <!-- //site-nav -->
         </div>
         <div class="large--hide medium-down--show">
@@ -274,34 +288,54 @@
                 </button>
               </div>
             </div>
-            <div class="grid__item one-half text-right">
-              <div class="site-nav--mobile">
-                <a href="/cart" class="js-drawer-open-right site-nav__link" aria-controls="CartDrawer" aria-expanded="false">
-                  <span class="icon-fallback-text">
-                    <span class="icon icon-cart" aria-hidden="true"></span>
-                    <span class="fallback-text">{{ 'layout.cart.title' | t }}</span>
-                  </span>
-                </a>
-              </div>
+            <div class="grid__item one-half text-right site-nav--mobile">
+              <a href="/cart" class="site-header__cart-toggle js-drawer-open-right site-nav__link" aria-controls="CartDrawer" aria-expanded="false">
+                <span class="icon icon-cart" aria-hidden="true"></span>
+                {% comment %}
+                "cart" title
+                {{ 'layout.cart.title' | t }}
+                {% endcomment %}
+                ( <span id="CartCount">{{ cart.item_count }}</span>
+                {% comment %}
+                show total price
+                {{ 'layout.cart.items_count' | t: count: cart.item_count }}
+                <span id="CartCost">{{ cart.total_price | money }}</span>
+                {% endcomment %})
+              </a>
             </div>
           </div>
         </div>
       </div>
     </nav>
 
-    <main class="wrapper main-content" role="main">
+    <main class="" role="main">
 
       {{ content_for_layout }}
 
     </main>
 
     <!-- begin site-footer -->
-    <footer class="site-footer small--text-center" role="contentinfo">
+    <footer class="site-footer grid small--text-center" role="contentinfo">
       <div class="wrapper">
-        <div class="grid">
+        <div class="grid__item medium--one-sixth push--medium--one-sixth large--one-quarter push--large--one-sixth">
+          <h5 class="">About</h5>
+          <ul class="no-bullets">
+            <li><a href="https://drphonez.myshopify.com/pages/about-us">About Us</a></li>
+            <li><a href="https://drphonez.myshopify.com/pages/careers">Careers</a></li>
+            <li><a href="https://drphonez.myshopify.com/pages/support">Contact</a></li>
+          </ul>
+        </div>
+        <div class="grid__item medium--one-sixth push--medium--one-sixth large--one-quarter push--large--one-sixth">
+          <h5 class="">Help</h5>
+          <ul class="no-bullets">
+            <li><a href="https://drphonez.myshopify.com/pages/support">Quotes</a></li>
+            <li><a href="https://drphonez.myshopify.com/pages/faqs">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="grid__item medium--one-sixth push--medium--one-sixth large--one-quarter push--large--one-sixth">
           {% if settings.footer_social_enable %}
-            <div class="grid__item large--one-third medium--one-half">
-              <h3>{{ 'layout.footer.social_title' | t }}</h3>
+            <div class="">
+              <h5 class="large--inline-block">{{ 'layout.footer.social_title' | t }}</h5>
                 <ul class="inline-list social-icons">
                   {% if settings.social_twitter_link != blank %}
                     <li>
@@ -316,6 +350,14 @@
                       <a class="icon-fallback-text" href="{{ settings.social_facebook_link }}" title="{{ shop.name }} on Facebook">
                         <span class="icon icon-facebook" aria-hidden="true"></span>
                         <span class="fallback-text">Facebook</span>
+                      </a>
+                    </li>
+                  {% endif %}
+                  {% if settings.social_instagram_link != blank %}
+                    <li>
+                      <a class="icon-fallback-text" href="{{ settings.social_instagram_link }}" title="{{ shop.name }} on Instagram">
+                        <span class="icon icon-instagram" aria-hidden="true"></span>
+                        <span class="fallback-text">Instagram</span>
                       </a>
                     </li>
                   {% endif %}
@@ -363,7 +405,6 @@
             </div>
           {% endif %}
           <div class="grid__item text-center">
-            <hr>
             {% comment %}
               Loop through available payment methods and show their icons.
             {% endcomment %}
@@ -383,10 +424,23 @@
                 {% endfor %}
               </ul>
             {% endunless %}
-            <a href="http://shopify.com/timber">Timber Theme Framework</a> by <a href="http://www.shopify.com?ref=Timber" title="Shopify.com">Shopify</a><br>
-            <small>{{ powered_by_link }}</small>
+
           </div>
         </div>
+        <hr>
+
+        <div class="grid__item push--large--one-sixth">
+          <p class="trademark-p">Trademark 2010 - 2017
+            <span>Dr Phonez</span>
+          </p>
+          <span class="trademark-span-divider">|</span>
+          <a href="https://drphonez.myshopify.com/pages/terms-of-use">Terms of Use</a>
+          <span class="trademark-span-divider">|</span>
+          <a href="https://drphonez.myshopify.com/pages/privacy-policy">Privacy Policy</a>
+          <span class="trademark-span-divider">|</span>
+          <a href="https://drphonez.myshopify.com/pages/return-policy">Return Policy</a>
+        </div>
+
       </div>
     </footer>
     <!-- //site-footer -->
@@ -434,5 +488,9 @@
     </script>
   {% endif %}
 
+  {% comment %}
+    custom js link
+  {% endcomment %}
+  {{ 'custom.js' | asset_url | script_tag }}
 </body>
 </html>
