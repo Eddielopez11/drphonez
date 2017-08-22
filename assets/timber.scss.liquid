@@ -60,6 +60,7 @@ $large: 769px;
 
 $postSmall: $small + $viewportIncrement;
 $preMedium: $medium - $viewportIncrement;
+$postMeduim: $medium + $viewportIncrement;
 $preLarge: $large - $viewportIncrement;
 
 /*================ The following are dependencies of csswizardry grid ================*/
@@ -2926,8 +2927,14 @@ label.error {
   width: 24%;
 }
 
+.repairs-img {
+  height: 200px;
+  padding-bottom: 15px;
+  padding-top: 50px;
+}
+
 .repairs-product {
-  padding: 0 20px 20px 20px;
+  padding: 0 20px 0 20px;
   height: 320px;
   position: relative;
   width: 25%;
@@ -2941,20 +2948,8 @@ label.error {
     width: 49%;
   }
   @include at-query($max, $small) {
-    width: 95%;
+    width: 49%;
   }
-}
-
-.repairs-img {
-  height: 200px;
-  padding-bottom: 15px;
-  padding-top: 50px;
-}
-
-.repair-type-img {
-  height: 230px;
-  padding-bottom: 15px;
-  padding-top: 35px;
 }
 
 .repairs-product:hover {
@@ -2963,14 +2958,31 @@ label.error {
   box-shadow: 0 5px 10px 1px lightgrey;
 }
 
+.repair-type-img {
+  height: 230px;
+  padding-bottom: 15px;
+  padding-top: 35px;
+  @include at-query($max, $small) {
+    height: 180px;
+    padding-bottom: 0;
+  }
+}
+
 .repairs-product-typeImg {
   position: absolute;
   @include at-query($max, 1290px){
     right: 10px;
     top: 18px;
   }
+  @include at-query($max, $postMeduim) {
+    right: 25%;
+    top: 30px;
+    width: 60px;
+  }
   @include at-query($max, $small) {
-    right: 20%;
+    right: 18px;
+    top: 30px;
+    width: 50px;
   }
   right: 10%;
   top: 20px;
@@ -2983,8 +2995,15 @@ label.error {
     right: 10px;
     top: 88px;
   }
+  @include at-query($max, $postMeduim) {
+    right: 25%;
+    top: 85px;
+    width: 60px;
+  }
   @include at-query($max, $small) {
-    right: 20%;
+    right: 18px;
+    top: 75px;
+    width: 50px;
   }
   right: 10%;
   top: 90px;
@@ -3002,7 +3021,7 @@ label.error {
 .maps {
   position: relative;
   margin: auto;
-  margin-bottom: 4%;
+  margin-bottom: 40px;
   @include at-query($max, $small) {
     width: 90%;
   }
@@ -3041,7 +3060,7 @@ label.error {
   margin-left: 5%;
   vertical-align: top;
   width: 30%;
-  @include at-query($max, $medium){
+  @include at-query($max, $small){
     width: 100%;
   }
 }
@@ -3079,6 +3098,9 @@ label.error {
   margin-left: 2%;
   width: 60%;
   @include at-query($max, $medium){
+    width: 60%;
+  }
+  @include at-query($max, $medium){
     margin-top: 20px;
     width: 100%;
   }
@@ -3089,7 +3111,7 @@ label.error {
   height: 500px;
   width: 95%;
   @include at-query($max, $medium){
-    height: 250px;
+    height: 260px;
   }
 }
 
