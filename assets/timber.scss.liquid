@@ -3130,21 +3130,28 @@ label.error {
 
 /*=====================Phonebulance Custom=========================*/
 
+.phonebulance-wrapper {
+  height: auto;
+  position: relative;
+}
+
 .youtubevideo1 {
   display: inline-block;
   margin-left: 15%;
   width: 35%;
-}
-
-.phonebulance-wrapper {
-  height: auto;
-  position: relative;
+  @include at-query($max, $medium) {
+    width: 70%;
+  }
 }
 
 .phonebulance {
   display: inline-block;
   margin-left: 8%;
   width: 25%;
+  @include at-query($max, $medium) {
+    margin-left: 15%; 
+    width: 70%;
+  }
 }
 
 .phonebulance-quote {
