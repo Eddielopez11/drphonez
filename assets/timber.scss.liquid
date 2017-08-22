@@ -2568,6 +2568,12 @@ label.error {
   width: 95%;
 }
 
+.grid-nopadding {
+  @include at-query($max, $small) {
+    padding-left: 0;
+  }
+}
+
 /*=======================Header Custom========================*/
 
 .headerRepairs {
@@ -3149,7 +3155,7 @@ label.error {
   margin-left: 8%;
   width: 25%;
   @include at-query($max, $medium) {
-    margin-left: 15%; 
+    margin-left: 15%;
     width: 70%;
   }
 }
