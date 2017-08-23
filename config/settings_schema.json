@@ -151,6 +151,26 @@
     ]
   },
   {
+    "name": "Index",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Banner"
+      },
+      {
+        "type": "checkbox",
+        "id": "logo_use_slide1",
+        "label": "Use Slide 1?"
+      },
+      {
+        "type": "image",
+        "id": "slide1.png",
+        "label": "Slide 1",
+        "info": "slide 1 .png"
+      }
+    ]
+  },
+  {
     "name": "Footer",
     "settings": [
       {
