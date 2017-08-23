@@ -49,6 +49,8 @@
   #Ajax Cart Styles
 ==============================================================================*/
 
+// beginning
+
 /*============================================================================
   #Breakpoint and Grid Variables
 ==============================================================================*/
@@ -2559,7 +2561,11 @@ label.error {
 /*
 // Custom Fonts
 // font-family: 'Yantramanav', sans-serif;
+// font-family: 'Satisfy', cursive;
 */
+
+$Yantra: 'Yantramanav', sans-serif, Arial;
+$Satisfy: 'Satisfy', cursive;
 
 .wrapper-custom {
   margin: auto;
@@ -2634,7 +2640,7 @@ label.error {
 .trademark-p {
   display: inline-block;
   margin: 0;
-  font-family: 'Yantramanav', sans-serif;
+  font-family: $Yantra;
   font-weight: 200;
 }
 
@@ -2665,7 +2671,7 @@ label.error {
   padding: 0;
   line-height: 1.1;
   font-size: 30px;
-  font-family: 'Satisfy', cursive;
+  font-family: $Satisfy;
 }
 
 .index-reviews-second {
@@ -2673,13 +2679,7 @@ label.error {
   padding: 0;
   line-height: .99;
   font-size: 24px;
-  font-family: 'Satisfy', cursive;
-}
-
-.index-reviews-stars {
-  margin: 0;
-  padding: 0;
-  width: 85%;
+  font-family: $Satisfy;
 }
 
 .index--carousel-container {
@@ -2742,11 +2742,18 @@ label.error {
   position: absolute;
   text-align: center;
   width: 20%;
-  display: none;
+  visibility: hidden;
 }
 
 .slide-arrow-container:hover {
-  display: block;
+  background-color: rgba(230, 230, 230, .3);
+  font-size: 100px;
+  font-weight: 900;
+  height: 100%;
+  position: absolute;
+  text-align: center;
+  width: 20%;
+  visibility: visible;
 }
 
 .slide-arrow-left {
@@ -2840,7 +2847,7 @@ label.error {
     font-size: 28px;
   }
   font-weight: 600;
-  font-family: 'Yantramanav', sans-serif;
+  font-family: $Yantra;
   letter-spacing: 1.5px;
   margin-top: 10px;
   text-align: center;
@@ -3042,7 +3049,7 @@ label.error {
 .map-info-banner {
   background-color: $colorPrimary;
   color: rgba(255, 255, 255, 1);
-  font-family: 'Yantramanav', sans-serif;
+  font-family: $Yantra;
   font-size: 17px;
   font-weight: 600;
   position: absolute;
@@ -3072,12 +3079,12 @@ label.error {
 }
 
 .location-main-header {
-  font-family: 'Yantramanav', sans-serif, Arial;
+  font-family: $Yantra, Arial;
 }
 
 .location-info-headers {
   display: block;
-  font-family:'Yantramanav', sans-serif, Arial;
+  font-family:$Yantra, Arial;
   font-size: 21px;
   font-weight: 500;
   margin-top: 15px;
@@ -3168,3 +3175,22 @@ label.error {
 
 
 /*=====================================Protection Program Custom===================*/
+
+.protection-header {
+  color: $colorPrimary;
+  font-size: 60px;
+  font-family: $Yantra;
+}
+
+.protection-subheader {
+  color: $colorPrimary;
+  font-size: 28px;
+  font-family: $Yantra;
+}
+
+
+.protection-intro {
+  font-size: 22px;
+  font-family: Arial;
+  margin-bottom: 25px;
+}
