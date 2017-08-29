@@ -1840,6 +1840,7 @@ label.error {
 ==============================================================================*/
 .nav-bar {
   background-color: $colorSecondary;
+  height: 45px;
   position: relative;
   margin-top: 5px;
 }
@@ -1870,16 +1871,22 @@ label.error {
 }
 
 .site-nav__link {
-  display: block;
-  text-decoration: none;
-  padding: ($gutter / 4) ($gutter / 1.8);
-  white-space: nowrap;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   color: white;
+  display: block;
+  padding: ($gutter / 4) ($gutter / 2.2);
+  text-align: center;
+  text-decoration: none;
+  min-width: 100px;
+  white-space: nowrap;
 
   &:hover,
   &:active,
   &:focus {
-    color: black;
+    color: white;
+    font-weight: 700;
   }
 
   .icon-arrow-down {
@@ -1890,7 +1897,7 @@ label.error {
   }
 
   .site-nav--active > & {
-    font-weight: bold;
+    font-weight: 700;
   }
 
   .site-nav--mobile & {
@@ -1902,7 +1909,7 @@ label.error {
 .site-nav__dropdown {
   display: none;
   position: absolute;
-  left: -11px;
+  left: 0;
   margin: 0;
   z-index: $zindexNavDropdowns;
 
@@ -1915,7 +1922,8 @@ label.error {
   a {
     background-color: darken($colorSecondary, 5%);
     text-align: center;
-
+    margin: 0;
+    padding: 6px;
     &:hover,
     &:active,
     &:focus {
@@ -3182,7 +3190,7 @@ $Satisfy: 'Satisfy', cursive;
 
 .protection-header {
   color: $colorPrimary;
-  font-size: 60px;
+  font-size: 40px;
   font-family: $Yantra;
   margin-top: 40px;
 }
@@ -3190,18 +3198,17 @@ $Satisfy: 'Satisfy', cursive;
 .protection-img {
   display: block;
   margin: auto;
-  width: 500px;
+  width: 400px;
 }
 
 .protection-subheader {
   color: $colorPrimary;
-  font-size: 28px;
+  font-size: 24px;
   font-family: $Yantra;
 }
 
-
 .protection-intro {
-  font-size: 22px;
+  font-size: 20px;
   font-family: Arial;
   margin-bottom: 40px;
 }
@@ -3209,6 +3216,25 @@ $Satisfy: 'Satisfy', cursive;
 .protection-phonez {
   display: block;
   margin: auto;
-  margin-bottom: 80px;
+  margin-bottom: 40px;
   max-width: 700px;
+}
+
+.protection-table-wrapper {
+  vertical-align: top;
+  display: inline-block;
+  margin: 20px 0;
+  width: 49%
+}
+
+.protection-table-header {
+  font-size: 20px;
+}
+
+.protection-table {
+  width: 100%;
+}
+
+.protection-table-headcell {
+  background-color: $colorPrimary;
 }
