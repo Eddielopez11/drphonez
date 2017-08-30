@@ -25,10 +25,6 @@ document.addEventListener("DOMContentLoaded", function() {
   var slideIndex = 1;
   showSlides(slideIndex);
 
-  function plusSlides(n) {
-    showSlides(slideIndex += n);
-  };
-
   function currentSlide(n) {
     clearTimeout(autoSlide);
     showSlides(slideIndex = n);
@@ -54,11 +50,20 @@ document.addEventListener("DOMContentLoaded", function() {
     currentSlide(5);
   };
 
+  document.getElementById("left-arrow").onclick = function slideDown() {
+    slideIndex--;
+    currentSlide(slideIndex);
+  };
+
+  document.getElementById("right-arrow").onclick = function slideUp() {
+    slideIndex++;
+    currentSlide(slideIndex);
+  };
+
   function autoSlides(e) {
     slideIndex++;
     showSlides(slideIndex);
   };
-
 
   var autoSlide;
   function showSlides(n) {
@@ -73,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function() {
         dots[i].className = dots[i].className.replace(" dot--active", "");
     }
     slides[slideIndex-1].style.display = "block";
+    slides[slideIndex-1].style.opacity = 1;
     dots[slideIndex-1].className += " dot--active";
     autoSlide = setTimeout(function(){autoSlides()}, 6500);
 
