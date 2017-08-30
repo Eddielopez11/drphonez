@@ -2565,7 +2565,10 @@ label.error {
 
 
 
-/*===================== Custom CSS ===================*/
+/*
+// Custom CSS
+*/
+
 /*
 // Custom Fonts
 // font-family: 'Yantramanav', sans-serif;
@@ -2588,7 +2591,9 @@ $Satisfy: 'Satisfy', cursive;
   }
 }
 
-/*=======================Header Custom========================*/
+/*
+// Header Custom
+*/
 
 .headerRepairs {
   span {
@@ -2612,7 +2617,9 @@ $Satisfy: 'Satisfy', cursive;
   font-size: 20px;
 }
 
-/*=======================Nav Custom========================*/
+/*
+// Nav Custom
+*/
 
 .loggin {
   vertical-align: bottom;
@@ -2643,7 +2650,13 @@ $Satisfy: 'Satisfy', cursive;
   margin-top: 15px;
 }
 
-/*=====================Footer Custom======================*/
+/*
+// Footer Custom
+*/
+
+.footer-link {
+  font-size: 18px
+}
 
 .trademark-p {
   display: inline-block;
@@ -2658,7 +2671,9 @@ $Satisfy: 'Satisfy', cursive;
   font-weight: lighter;
 }
 
-/*======================Index Custom========================*/
+/*
+// Index Custom
+*/
 
 .index-wrapper {
   position: relative;
@@ -2711,6 +2726,12 @@ $Satisfy: 'Satisfy', cursive;
 }
 
 .newsSlides {
+  background-color: white;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
   display: none;
 }
 
@@ -2743,50 +2764,72 @@ $Satisfy: 'Satisfy', cursive;
 }
 
 .slide-arrow-container {
-  background-color: rgba(230, 230, 230, .3);
-  font-size: 100px;
-  font-weight: 900;
+  color: black;
+  font-size: 40px;
+  font-weight: 300;
   height: 100%;
+  line-height: 1.1;
+  opacity: .8;
+  padding-top: 160px;
   position: absolute;
-  text-align: center;
-  width: 20%;
-  visibility: hidden;
-}
-
-.slide-arrow-container:hover {
-  background-color: rgba(230, 230, 230, .3);
-  font-size: 100px;
-  font-weight: 900;
-  height: 100%;
-  position: absolute;
-  text-align: center;
-  width: 20%;
-  visibility: visible;
+  width: 35%;
 }
 
 .slide-arrow-left {
-  left: 0px;
+  left: 15px;
+  text-align: left;
+  .slide-arrow-circle {
+    background-color: rgb(220, 220, 220);
+    border-radius: 70%;
+    cursor: pointer;
+    height: 50px;
+    margin-left: 15%;
+    visibility: hidden;
+    width: 50px;
+    &:hover {
+      background-color: $colorPrimary;
+      color: white;
+    }
+    .slide-arrows {
+      padding: 15px;
+    }
+  }
 }
 
 .slide-arrow-right {
-  right: 0px;
+  right: 15px;
+  text-align: right;
+    .slide-arrow-circle {
+    background-color: rgb(220, 220, 220);
+    border-radius: 70%;
+    cursor: pointer;
+    height: 50px;
+    margin-left: auto;
+    margin-right: 15%;
+    visibility: hidden;
+    width: 50px;
+    &:hover {
+      background-color: $colorPrimary;
+      color: white;
+    }
+    .slide-arrows {
+      padding: 15px;
+    }
+  }
 }
 
-.slide-arrows {
-  color: white;
+.image1 {
+  margin: 0 auto !important;
+  width: 80% !important;
 }
 
-.slide1 {
-  margin: auto;
-  width: 80%;
-}
-
-.slide2 {
-  margin: auto;
-  width: 70%;
+.image2 {
+  margin: 0 auto !important;
+  width: 70% !important;
 }
 
 .newsImage {
+  display: block;
   max-height: 380px;
   @include at-query($min, 1285px) {
     max-height: 600px;
@@ -2794,14 +2837,9 @@ $Satisfy: 'Satisfy', cursive;
   @include at-query($max, $small) {
     max-height: 200px;
   }
-  -webkit-transition:all 1.0s ease-in-out;
-  -moz-transition:all 1.0s ease-in-out;
-  -o-transition:all 1.0s ease-in-out;
-  transition:all 1.0s ease-in-out;
   padding:0;
   margin:0;
-  margin-top: -30px;
-  float:left;
+  text-align: center;
   width: 100%;
 }
 
@@ -2920,7 +2958,9 @@ $Satisfy: 'Satisfy', cursive;
   padding: 0 10%;
 }
 
-/*=========================About Custom=====================*/
+/*
+// About Custom
+*/
 
 .about-main-section {
   background-color: $colorFooterBg;
@@ -2940,7 +2980,9 @@ $Satisfy: 'Satisfy', cursive;
   }
 }
 
-/*=====================Repairs Custom=======================*/
+/*
+// Repairs Custom
+*/
 
 .collections-wrapper {
   margin: 20px .6% 50px 0;
@@ -3035,7 +3077,9 @@ $Satisfy: 'Satisfy', cursive;
   width: 80px;
 }
 
-/*=======================Locations Custom========================*/
+/*
+// Locations Custom
+*/
 
 .flex-wrapper {
   display: flex;
@@ -3078,7 +3122,9 @@ $Satisfy: 'Satisfy', cursive;
   text-align: center;
 }
 
-/*=======================Location Custom========================*/
+/*
+// Location Custom
+*/
 
 .location-pageinfo {
   display: inline-block;
@@ -3140,7 +3186,9 @@ $Satisfy: 'Satisfy', cursive;
   }
 }
 
-/*========================Support Custom=======================*/
+/*
+// Support Custom
+*/
 
 
 .support-quote {
@@ -3153,7 +3201,9 @@ $Satisfy: 'Satisfy', cursive;
   padding-right: 30px;
 }
 
-/*=====================Phonebulance Custom=========================*/
+/*
+// Phonebulance Custom
+*/
 
 .phonebulance-wrapper {
   height: auto;
@@ -3186,7 +3236,9 @@ $Satisfy: 'Satisfy', cursive;
 }
 
 
-/*=====================================Protection Program Custom===================*/
+/*
+// Protection Program Custom
+*/
 
 .protection-header {
   color: $colorPrimary;
@@ -3218,16 +3270,24 @@ $Satisfy: 'Satisfy', cursive;
   margin: auto;
   margin-bottom: 40px;
   max-width: 700px;
+  width: 90%;
 }
 
 .protection-table-wrapper {
   vertical-align: top;
   display: inline-block;
-  margin: 20px 0;
-  width: 49%
+  margin-bottom: 35px;
+  margin-left: 5%;
+  margin-top: 20px;
+  width: 40%
+}
+
+.protection-ipad {
+  margin-right: 0px;
 }
 
 .protection-table-header {
+  text-align: center;
   font-size: 20px;
 }
 
@@ -3237,4 +3297,23 @@ $Satisfy: 'Satisfy', cursive;
 
 .protection-table-headcell {
   background-color: $colorPrimary;
+}
+
+
+/*
+// Reveal Module
+*/
+
+.reveal .hidden {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.reveal:hover .hidden {
+  visibility: visible;
+  opacity: 1;
 }
