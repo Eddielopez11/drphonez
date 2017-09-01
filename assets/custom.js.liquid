@@ -83,4 +83,23 @@ document.addEventListener("DOMContentLoaded", function() {
     autoSlide = setTimeout(function(){autoSlides()}, 6500);
 
   };
+
+  // ********* FAQ Page *********  //
+
+
+});
+
+
+$(document).ready(function(){
+
+  $(window).click(function() {
+  //Hide the menus if visible
+  });
+
+  $(".childshow").click(function (e) {
+    e.stopPropagation();
+    console.log("clicked");
+    jQuery(this).children('.childshow').toggle("fast");
+  });
+
 });
