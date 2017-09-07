@@ -54,13 +54,13 @@
   <a href="{{ product.url | within: collection }}" class="grid__image">
     {% for tag in product.tags %}
       {% if tag == 'digi-lcd' %}
-        <img class="repairs-product-typeImg" src="{{ 'glassIcon.png' | asset_url }}" alt="">
-        <img class="repairs-product-typeImg2" src="{{ 'lcdIcon.png' | asset_url }}" alt="">
+        <img class="repairs-product-typeImg" src="{{ 'glassIcon.png' | asset_url }}" alt="glass icon repair">
+        <img class="repairs-product-typeImg2" src="{{ 'lcdIcon.png' | asset_url }}" alt="lcd icon repair">
       {% else %}
-        <img class="repairs-product-typeImg" src="{{ tag | append: 'Icon.png' | asset_url }}" alt="">
+        <img class="repairs-product-typeImg" src="{{ tag | append: 'Icon.png' | asset_url }}" alt="{{ tag }} repair">
       {% endif %}
     {% endfor %}
-    <img class="repair-type-img" src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+    <img class="repair-type-img" src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }} Repair">
   </a>
 
   <p class="h6 text-center">
