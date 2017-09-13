@@ -3304,8 +3304,13 @@ $Satisfy: 'Satisfy', cursive;
 // FAQ Custom
 */
 
+.header-faq {
+  margin-bottom: 50px;
+  margin-top: 25px;
+}
+
 .wrapper-faq {
-  padding: 0 15%;
+  padding: 0 10%;
 }
 
 .faq-left-div {
@@ -3316,10 +3321,34 @@ $Satisfy: 'Satisfy', cursive;
   padding-right: 20px !important;
   margin-bottom: 50px;
 
-  h5 {
-    cursor: pointer;
-    margin-bottom: 25px;
+  .childshow {
   }
+
+  h5 {
+    border-radius: 10px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    cursor: pointer;
+    height: 60px;
+    margin-bottom: 15px;
+    padding: 15px;
+    transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
+    &:hover,
+    &:active,
+    &:focus {
+      border-bottom: 2px solid $colorPrimary;
+      color: $colorPrimary;
+    }
+  }
+
+  .faq-answer {
+    margin-bottom: 25px;
+    padding: 20px 20px 20px 25px;
+    width: 90%;
+  }
+
 }
 
 /*
