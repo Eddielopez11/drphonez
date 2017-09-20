@@ -1876,7 +1876,7 @@ label.error {
   -webkit-box-sizing: border-box;
   color: white;
   display: block;
-  padding: ($gutter / 4) ($gutter / 2.2);
+  padding: ($gutter / 4) ($gutter / 4);
   text-align: center;
   text-decoration: none;
   min-width: 100px;
@@ -2581,13 +2581,32 @@ $Satisfy: 'Satisfy', cursive;
 .wrapper-custom {
   margin: auto;
   margin-bottom: 20px;
-  margin-top: 30px;
+  margin-top: 40px;
   width: 95%;
 }
 
 .grid-nopadding {
   @include at-query($max, $small) {
     padding-left: 0;
+  }
+}
+
+.page-mainHeader-wrapper {
+  padding: 0;
+  height: 120px;
+  @include at-query($min, 1285px) {
+    height: 160px;
+  }
+}
+
+.page-mainHeader {
+  font-family: $Yantra;
+  font-size: 40px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  margin: 0;
+  @include at-query($min, 1285px) {
+    font-size: 70px;
   }
 }
 
@@ -2644,12 +2663,6 @@ $Satisfy: 'Satisfy', cursive;
   padding-top: .4em;
 }
 
-.page-mainHeader {
-  font-weight: 100;
-  margin-bottom: 10px;
-  margin-top: 15px;
-}
-
 /*
 // Footer Custom
 */
@@ -2676,14 +2689,31 @@ $Satisfy: 'Satisfy', cursive;
 */
 
 .index-wrapper {
+  padding-bottom: 50px;
+  padding-top: 20px;
   position: relative;
   width: 100%;
 }
 
+.index-wrapper::after {
+  content: "";
+  background-image: url({{ 'circuit-background.jpg' | asset_url }});
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
 .index-reviews {
   position: absolute;
-  left: 2%;
-  top: 5%;
+  left: 3%;
+  top: 10%;
   width: 20%;
 }
 
@@ -2706,27 +2736,24 @@ $Satisfy: 'Satisfy', cursive;
 }
 
 .index--carousel-container {
-  height: 470px;
+  height: 420px;
   @include at-query($min, 1285px) {
-    height: 700px;
+    height: 680px;
   }
   @include at-query($max, $small) {
     height: 200px;
   }
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
   // -webkit-box-shadow: 0 2px 15px 2px #ccc;
   // -moz-box-shadow:    0 2px 15px 2px #ccc;
   // box-shadow:         0 2px 15px 2px #ccc;
   margin: auto;
+  margin-top: 30px;
   position: relative;
   overflow: hidden;
   width: 60%;
 }
 
 .newsSlides {
-  background-color: white;
   opacity: 0;
   -webkit-transition: opacity 0.3s ease-in-out;
   -moz-transition: opacity 0.3s ease-in-out;
@@ -2747,12 +2774,13 @@ $Satisfy: 'Satisfy', cursive;
 
 .slide-header {
   font-weight: 800;
-  font-size: 40px;
+  font-size: 60px;
   line-height: 65%;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 5px;
+  margin-bottom: 25px;
   .slide-span {
-    font-size: 22px;
+    font-size: 32px;
     font-weight: 400;
   }
   @include at-query($max, $small) {
@@ -2771,7 +2799,7 @@ $Satisfy: 'Satisfy', cursive;
   height: 100%;
   line-height: 1.1;
   opacity: .8;
-  padding-top: 30%;
+  padding-top: 25%;
   position: absolute;
   width: 35%;
 }
@@ -2821,27 +2849,26 @@ $Satisfy: 'Satisfy', cursive;
 
 .image1 {
   margin: 0 auto !important;
-  width: 80% !important;
 }
 
 .image2 {
   margin: 0 auto !important;
-  width: 70% !important;
 }
 
 .newsImage {
   display: block;
-  max-height: 380px;
+  max-height: 300px;
   @include at-query($min, 1285px) {
-    max-height: 600px;
+    max-height: 560px;
   }
   @include at-query($max, $small) {
     max-height: 200px;
   }
+  background: transparent !important;
+  border-radius: 3px;
   padding:0;
-  margin:0;
+  margin:0 auto !important;
   text-align: center;
-  width: 100%;
 }
 
 .dot--container {
@@ -2900,7 +2927,8 @@ $Satisfy: 'Satisfy', cursive;
   font-weight: 600;
   font-family: $Yantra;
   letter-spacing: 1.5px;
-  margin-top: 10px;
+  margin-top: 50px;
+  margin-bottom: 30px;
   text-align: center;
 }
 
@@ -2964,21 +2992,50 @@ $Satisfy: 'Satisfy', cursive;
 */
 
 .about-main-section {
-  background-color: $colorFooterBg;
-  color: black;
+  background-image: url({{ 'about-us-banner.jpg' | asset_url }});
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: white;
+  height: 400px;
   padding: 3% 10% 5%;
-  margin-top: 30px;
   @include at-query($max, $small) {
     padding: 5% 15%;
   }
-  .about-main-header{
-    text-align: center;
-    font-size: 40px;
-    font-weight: 600;
+  @include at-query($min, 1285px) {
+    height: 500px;
   }
-  .about-main-p {
-    font-size: 24px;
+  .text-wrapper {
+    line-height: .95;
+    padding-left: 120px;
+    padding-top: 80px;
+    width: 50%;
+    @include at-query($min, 1285px) {
+      padding-top: 100px;
+      padding-left: 160px;
+    }
+    .about-banner-p {
+      font-size: 24px;
+      font-weight: 200;
+      margin: 0;
+    }
+    .about-main-header{
+      text-align: left;
+      font-size: 40px;
+      font-weight: 600;
+      margin: 5px 0;
+    }
+    .about-main-p {
+      font-size: 24px;
+      font-weight: 300;
+      margin: 0;
+    }
   }
+}
+
+.about-us-wrap {
+  margin: 0;
+  margin-top: 50px;
 }
 
 /*
@@ -3194,8 +3251,10 @@ $Satisfy: 'Satisfy', cursive;
 
 .support-quote {
   font-size: 20px;
-  margin-bottom: 40px;
   margin-top: -14px;
+  @include at-query($min, 1285px) {
+    font-size: 25px;
+  }
 }
 
 .support-form {
@@ -3243,9 +3302,6 @@ $Satisfy: 'Satisfy', cursive;
 
 .protection-header {
   color: $colorPrimary;
-  font-size: 40px;
-  font-family: $Yantra;
-  margin-top: 40px;
 }
 
 .protection-img {
@@ -3256,13 +3312,19 @@ $Satisfy: 'Satisfy', cursive;
 
 .protection-subheader {
   color: $colorPrimary;
-  font-size: 24px;
   font-family: $Yantra;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.protection-wrapper {
+  padding: 0;
 }
 
 .protection-intro {
   font-size: 20px;
   font-family: Arial;
+  font-weight: 500;
   margin-bottom: 40px;
 }
 
@@ -3278,7 +3340,7 @@ $Satisfy: 'Satisfy', cursive;
   vertical-align: top;
   display: inline-block;
   margin-bottom: 35px;
-  margin-left: 5%;
+  margin-left: 7%;
   margin-top: 20px;
   width: 40%
 }
