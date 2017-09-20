@@ -1,9 +1,11 @@
 <!-- /templates/page.liquid -->
-<div class="grid">
+<div class="grid wrapper-custom">
 
-  <div class="grid__item large--two-thirds push--large--one-sixth">
+  <div class="grid__item page-mainHeader-wrapper">
+    <h1 class="text-center protection-header page-mainHeader">{{ page.title }}</h1>
+  </div>
 
-    <h1 class="text-center protection-header">{{ page.title }}</h1>
+  <div class="grid__item large--two-thirds push--large--one-sixth protection-wrapper">
 
     <img class="protection-img" src="{{ 'RPPresized.png' | asset_url }}" alt="">
 
