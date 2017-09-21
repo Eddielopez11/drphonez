@@ -1839,7 +1839,7 @@ label.error {
   #Site Nav and Dropdowns
 ==============================================================================*/
 .nav-bar {
-  background-color: $colorSecondary;
+  background-color: rgb(27, 43, 49);
   height: 45px;
   position: relative;
   margin-top: 5px;
@@ -1876,6 +1876,7 @@ label.error {
   -webkit-box-sizing: border-box;
   color: white;
   display: block;
+  font-weight: 600;
   padding: ($gutter / 4) ($gutter / 4);
   text-align: center;
   text-decoration: none;
@@ -1885,7 +1886,7 @@ label.error {
   &:hover,
   &:active,
   &:focus {
-    color: white;
+    color: $colorSecondary;
     font-weight: 700;
   }
 
@@ -1897,6 +1898,7 @@ label.error {
   }
 
   .site-nav--active > & {
+    color: $colorSecondary;
     font-weight: 700;
   }
 
@@ -1920,7 +1922,7 @@ label.error {
   }
 
   a {
-    background-color: darken($colorSecondary, 5%);
+    background-color: darken(rgb(27,43,49), 8%);
     text-align: center;
     margin: 0;
     padding: 6px;
@@ -2697,10 +2699,10 @@ $Satisfy: 'Satisfy', cursive;
 
 .index-wrapper::after {
   content: "";
-  background-image: url({{ 'circuit-background.jpg' | asset_url }});
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  // background-image: url({{ 'circuit-background.jpg' | asset_url }});
+  // background-repeat: no-repeat;
+  // background-position: center;
+  // background-size: cover;
   opacity: 0.5;
   top: 0;
   left: 0;
@@ -2937,8 +2939,9 @@ $Satisfy: 'Satisfy', cursive;
 }
 
 .index-single-policy {
+  font-size: 20px;
   margin-bottom: 3%;
-  padding: 0 25px;
+  padding: 0 50px;
 }
 
 .index-valuedcx-imgdiv {
@@ -2998,36 +3001,42 @@ $Satisfy: 'Satisfy', cursive;
   background-size: cover;
   color: white;
   height: 400px;
-  padding: 3% 10% 5%;
-  @include at-query($max, $small) {
-    padding: 5% 15%;
-  }
   @include at-query($min, 1285px) {
     height: 500px;
   }
   .text-wrapper {
     line-height: .95;
-    padding-left: 120px;
-    padding-top: 80px;
-    width: 50%;
+    letter-spacing: .9px;
+    padding-top: 100px;
+    padding-left: 270px;
+    width: 60%;
     @include at-query($min, 1285px) {
       padding-top: 100px;
       padding-left: 160px;
+    }
+    @include at-query($max, $small) {
+      padding-top: 50px;
+      padding-left: 80px;
+      width: 90%;
     }
     .about-banner-p {
       font-size: 24px;
       font-weight: 200;
       margin: 0;
     }
-    .about-main-header{
+    .about-main-header {
       text-align: left;
       font-size: 40px;
       font-weight: 600;
       margin: 5px 0;
+      @include at-query($max, $small) {
+        font-size: 45px;
+      };
     }
     .about-main-p {
       font-size: 24px;
       font-weight: 300;
+      line-height: 1;
       margin: 0;
     }
   }
@@ -3036,6 +3045,16 @@ $Satisfy: 'Satisfy', cursive;
 .about-us-wrap {
   margin: 0;
   margin-top: 50px;
+}
+
+.aboutUs-paragraph {
+  font-size: 20px;
+  margin-bottom: 3%;
+  padding: 0 0 0 200px ;
+  width: 80%;
+  @include at-query($max, $small) {
+    width: 100%;
+  };
 }
 
 /*
@@ -3342,7 +3361,10 @@ $Satisfy: 'Satisfy', cursive;
   margin-bottom: 35px;
   margin-left: 7%;
   margin-top: 20px;
-  width: 40%
+  width: 40%;
+  @include at-query($max, $small) {
+    width: 90%;
+  }
 }
 
 .protection-ipad {
