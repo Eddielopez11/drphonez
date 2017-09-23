@@ -3388,17 +3388,46 @@ $Satisfy: 'Satisfy', cursive;
 // FAQ Custom
 */
 
-.header-faq {
-  margin-bottom: 50px;
-  margin-top: 25px;
-}
-
 .wrapper-faq {
   padding: 0 5%;
 }
 
 .faq-left-div {
-  padding-left: 20px !important;
+  background-color: rgba(52, 152, 219,1.0);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  color: white;
+  height: 250px;
+  margin-bottom: 50px;
+
+  .faq-leftHeader1 {
+    display: inline-block;
+    font-size: 24px;
+    padding-left: 8%;
+    padding-top: 18%;
+  }
+
+  .faq-leftHeader2 {
+    display: inline-block;
+    font-size: 24px;
+    padding-left: 8%;
+  }
+
+  .faq-supportLink {
+    background-color: rgb(23, 43, 47);
+    border-radius: 5px;
+    color: white;
+    display: inline-block;
+    font-size: 18px;
+    margin: 0 0 0 8%;
+    padding: 4px 12px;
+
+    &:hover {
+      color: $colorSecondary;
+    }
+  }
 }
 
 .faq-right-div {
@@ -3425,7 +3454,7 @@ $Satisfy: 'Satisfy', cursive;
       bottom: 0;
       width: 100%;
       height: 3px;
-      background: red;
+      background: rgb(23,43,47);
     }
   }
 
@@ -3436,8 +3465,22 @@ $Satisfy: 'Satisfy', cursive;
 
   .faq-answer {
     margin-bottom: 25px;
-    padding: 20px 20px 20px 25px;
-    width: 90%;
+    margin: 0;
+    width: 100%;
+    &::after {
+      background: rgb(23,43,47);
+      content: '';
+      height: 3px;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+    p, h6, ul {
+      padding: 0 20px 0 30px;
+    }
+    p {
+      padding-top: 20px;
+    }
   }
 
 }
