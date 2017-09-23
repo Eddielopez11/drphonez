@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+$(document).ready(function(){
 // ********* Header *********  //
 // Successful repairs counter animation
   function animateValue(id, end, duration) {
@@ -20,77 +20,73 @@ document.addEventListener("DOMContentLoaded", function() {
   animateValue("phonesFixed", {{ settings.successful_repairs }}, .01);
 
 // ********* Main Page *********  //
-
-// slideshow
-  var slideIndex = 1;
-  showSlides(slideIndex);
-
-  function currentSlide(n) {
-    clearTimeout(autoSlide);
-    showSlides(slideIndex = n);
-  };
-
-  document.getElementById("dot1").onclick = function selectSlide() {
-    currentSlide(1);
-  };
-
-  document.getElementById("dot2").onclick = function selectSlide() {
-    currentSlide(2);
-  };
-
-  document.getElementById("dot3").onclick = function selectSlide() {
-    currentSlide(3);
-  };
-
-  document.getElementById("dot4").onclick = function selectSlide() {
-    currentSlide(4);
-  };
-
-  document.getElementById("dot5").onclick = function selectSlide() {
-    currentSlide(5);
-  };
-
-  document.getElementById("left-arrow").onclick = function slideDown() {
-    slideIndex--;
-    currentSlide(slideIndex);
-  };
-
-  document.getElementById("right-arrow").onclick = function slideUp() {
-    slideIndex++;
-    currentSlide(slideIndex);
-  };
-
-  function autoSlides(e) {
-    slideIndex++;
+if($('body').hasClass('template-index')){
+  
+  // slideshow
+    var slideIndex = 1;
     showSlides(slideIndex);
-  };
 
-  var autoSlide;
-  function showSlides(n) {
-    var slides = document.getElementsByClassName("newsSlides");
-    var dots = document.getElementsByClassName("dot");
-    if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
-    for (var i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    for (var i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" dot--active", "");
-    }
-    slides[slideIndex-1].style.display = "block";
-    slides[slideIndex-1].style.opacity = 1;
-    dots[slideIndex-1].className += " dot--active";
-    autoSlide = setTimeout(function(){autoSlides()}, 6500);
+    function currentSlide(n) {
+      clearTimeout(autoSlide);
+      showSlides(slideIndex = n);
+    };
 
+    document.getElementById("dot1").onclick = function selectSlide() {
+      currentSlide(1);
+    };
+
+    document.getElementById("dot2").onclick = function selectSlide() {
+      currentSlide(2);
+    };
+
+    document.getElementById("dot3").onclick = function selectSlide() {
+      currentSlide(3);
+    };
+
+    document.getElementById("dot4").onclick = function selectSlide() {
+      currentSlide(4);
+    };
+
+    document.getElementById("dot5").onclick = function selectSlide() {
+      currentSlide(5);
+    };
+
+    document.getElementById("left-arrow").onclick = function slideDown() {
+      slideIndex--;
+      currentSlide(slideIndex);
+    };
+
+    document.getElementById("right-arrow").onclick = function slideUp() {
+      slideIndex++;
+      currentSlide(slideIndex);
+    };
+
+    function autoSlides(e) {
+      slideIndex++;
+      showSlides(slideIndex);
+    };
+
+    var autoSlide;
+    function showSlides(n) {
+      var slides = document.getElementsByClassName("newsSlides");
+      var dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (var i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+      }
+      for (var i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" dot--active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      slides[slideIndex-1].style.opacity = 1;
+      dots[slideIndex-1].className += " dot--active";
+      autoSlide = setTimeout(function(){autoSlides()}, 6500);
+
+    };
   };
 
   // ********* FAQ Page *********  //
-
-
-});
-
-
-$(document).ready(function(){
 
   $(window).click(function() {
   //Hide the menus if visible
@@ -100,5 +96,4 @@ $(document).ready(function(){
     e.stopPropagation();
     jQuery(this).children('.childshow').toggle("medium");
   });
-
 });
