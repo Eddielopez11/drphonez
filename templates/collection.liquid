@@ -19,7 +19,14 @@
     {% comment %}
       Different markup if a collection description exists
     {% endcomment %}
-    {% if collection.description != blank %}
+    {% if collection.description == "repair" or collection.description == "drmacz" %}
+      <header class="section-header">
+        <h1 class="section-header__title section-header__left">{{ collection.title }}</h1>
+        <div class="section-header__right">
+          {% include 'collection-sorting' %}
+        </div>
+      </header>
+    {% else if collection.description != blank %}
       <header class="section-header">
         <h1 class="section-header__title">{{ collection.title }} Repairs</h1>
         <div class="rte rte--header">
