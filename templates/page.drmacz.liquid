@@ -13,16 +13,16 @@
       <div class="grid-uniform collections-wrapper flex-wrapper">
 
         {% for collection in collections %}
-            <div class="grid__item large--one-quarter medium-down--one-half">
 
-            {% if collection.tag contains page.title %}
+          {% if collection.description contains "drmacz" %}
+            <div class="grid__item large--one-quarter medium-down--one-half">
               <a href="{{collection.url}}" class="grid__image">
-                <img class="repairs-img" src="{{collection | img_url: 'large'}}" alt="">
+              <img class="repairs-img" src="{{collection | img_url: 'large'}}" alt="">
                 <h4 class="text-center">{{collection.title}}</h4>
               </a>
-            {% endif %}
-
             </div>
+          {% endif %}
+
         {% endfor %}
 
       </div>
