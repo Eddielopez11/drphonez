@@ -2695,18 +2695,18 @@ $Satisfy: 'Satisfy', cursive;
 */
 
 .index-wrapper {
+  background-color: lightgrey;
+  background-image: url({{ 'van.png' | asset_url }});
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
   padding-bottom: 50px;
   padding-top: 20px;
   position: relative;
-  width: 100%;
 }
 
 .index-wrapper::after {
   content: "";
-  // background-image: url({{ 'circuit-background.jpg' | asset_url }});
-  // background-repeat: no-repeat;
-  // background-position: center;
-  // background-size: cover;
   opacity: 0.5;
   top: 0;
   left: 0;
@@ -2760,12 +2760,12 @@ $Satisfy: 'Satisfy', cursive;
 }
 
 .newsSlides {
-  opacity: 0;
+  opacity: 1;
   -webkit-transition: opacity 0.3s ease-in-out;
   -moz-transition: opacity 0.3s ease-in-out;
   -o-transition: opacity 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out;
-  display: none;
+  display: block;
 }
 
 .newsSlide-link {
