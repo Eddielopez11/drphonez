@@ -201,6 +201,24 @@
                 {% endif %}
               </div>
             {% endif %}
+            <div class="desktop-cart-icon text-right">
+              <a href="/cart" class="site-header__cart-toggle js-drawer-open-right nav-links-cart" aria-controls="CartDrawer" aria-expanded="false">
+                <span class="icon icon-cart" aria-hidden="true"></span>
+                {% comment %}
+                "cart" title
+                {{ 'layout.cart.title' | t }}
+                {% endcomment %}
+                ( <span id="CartCount">{{ cart.item_count }}</span> )
+                {% comment %}
+                show total price
+                {{ 'layout.cart.items_count' | t: count: cart.item_count }}
+                <span id="CartCost">{{ cart.total_price | money }}</span>
+                {% endcomment %}
+              </a>
+            </div>
+            <div class="text-right large--search">
+              {% include 'search-bar' %}
+            </div>
           </div>
         </div>
       </div>
@@ -217,7 +235,7 @@
               - http://docs.shopify.com/themes/liquid-variables/linklists
           {% endcomment %}
           <!-- begin site-nav -->
-          <ul class="site-nav grid__item large--nine-twelfths" id="AccessibleNav">
+          <ul class="site-nav grid__item" id="AccessibleNav">
             {% for link in linklists.main-menu.links %}
               {% comment %}
                 Create a dropdown menu by naming a linklist the same as a link in the parent nav
@@ -246,36 +264,7 @@
               {% endif %}
             {% endfor %}
           </ul>
-          <div class="grid__item large--three-twelfths">
-            <div class="grid--full grid--table">
-              {% comment %}
-                Show number of items in the cart and total cost in the /cart link
 
-                Ajax Cart Notes:
-                  - #cartCount updates the total number of items in the cart
-                  - #cartCost updates the total cost of the cart
-                  - Documentation:  http://shopify.com/timber#ajax-cart
-              {% endcomment %}
-              <div class="grid__item large--four-twelfths desktop-cart-icon text-right">
-                <a href="/cart" class="site-header__cart-toggle js-drawer-open-right nav-links-custom" aria-controls="CartDrawer" aria-expanded="false">
-                  <span class="icon icon-cart" aria-hidden="true"></span>
-                  {% comment %}
-                  "cart" title
-                  {{ 'layout.cart.title' | t }}
-                  {% endcomment %}
-                  ( <span id="CartCount">{{ cart.item_count }}</span> )
-                  {% comment %}
-                  show total price
-                  {{ 'layout.cart.items_count' | t: count: cart.item_count }}
-                  <span id="CartCost">{{ cart.total_price | money }}</span>
-                  {% endcomment %}
-                </a>
-              </div>
-              <div class="grid__item large--seven-twelfths site-nav text--right large--search">
-                {% include 'search-bar' %}
-              </div>
-            </div>
-          </div>
           <!-- //site-nav -->
         </div>
         <div class="large--hide medium-down--show">
@@ -362,6 +351,9 @@
                     </li>
                   {% endif %}
                 </ul>
+                <div class="site-nav">
+                  {% include 'search-bar' %}
+                </div>
             </div>
           {% endif %}
           {% if settings.footer_newsletter_enable %}
