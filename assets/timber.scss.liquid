@@ -58,7 +58,7 @@ $viewportIncrement: 1px;
 
 $small: 480px;
 $medium: 768px;
-$large: 1280px;
+$large: 769px;
 $xlarge: 1285px;
 
 
@@ -66,6 +66,7 @@ $postSmall: $small + $viewportIncrement;
 $preMedium: $medium - $viewportIncrement;
 $postMeduim: $medium + $viewportIncrement;
 $preLarge: $large - $viewportIncrement;
+$preXLarge: $xlarge - 5px;
 
 /*================ The following are dependencies of csswizardry grid ================*/
 $breakpoints: (
@@ -2655,13 +2656,17 @@ $Satisfy: 'Satisfy', cursive;
   color: white;
 }
 
+.nav-links-cart {
+  color: rgb(27, 43, 49);
+}
+
 .nav-icons {
-  background-color: white;
-  color: {{ settings.color_footer_social_link }};
+  background-color: rgb(27, 43, 49);
+  color: white;
 }
 
 .desktop-cart-icon {
-  font-size: 1.5em;
+  font-size: 1.3em;
   padding-top: .3em;
   padding-right: .5em;
 }
@@ -2717,7 +2722,7 @@ $Satisfy: 'Satisfy', cursive;
     display: inline-block;
     width: 24.5%;
     height: 100%;
-    @include at-query($max, $medium) {
+    @include at-query($max, 955px) {
       display: none;
     };
     .indexSatisfaction {
@@ -2750,7 +2755,7 @@ $Satisfy: 'Satisfy', cursive;
     }
 
     .indexVideo {
-      display: inline-block;
+      display: block;
       margin-top: 106%;
       margin-left: 12%;
       width: 100%;
@@ -2778,6 +2783,11 @@ $Satisfy: 'Satisfy', cursive;
     margin-top: 0;
     padding-top: 0;
     vertical-align: top;
+    @include at-query($max, 955px){
+      margin-top: 10px;
+      margin: auto;
+      width: 100%;
+    }
     @include at-query($max, $medium){
       margin-top: 10px;
       margin: auto;
@@ -2818,7 +2828,7 @@ $Satisfy: 'Satisfy', cursive;
       margin: auto;
       height: 457.5px;
       width: 650px;
-      @include at-query($max, $large) {
+      @include at-query($max, $preXLarge) {
         height: 337.5px;
         width: 450px;
       }
@@ -2852,10 +2862,23 @@ $Satisfy: 'Satisfy', cursive;
     padding-top: 50px;
     vertical-align: top;
     width: 24.5%;
+    @include at-query($max, 955px) {
+      padding: 0;
+      padding-left: 20%;
+      width: 100%;
+    }
+    @include at-query($max, $medium) {
+      margin-top: 40px;
+      padding-left: 10%;
+    }
+    @include at-query($max, 600px) {
+      padding: 0;
+      padding-left: 50px;
+    }
     @include at-query($max, $small) {
       margin-top: -55px;
       padding-top: 0;
-      padding-left: 26%;
+      padding-left: 23%;
       width: 100%;
     }
 
@@ -2865,6 +2888,9 @@ $Satisfy: 'Satisfy', cursive;
       padding-left: 10px;
       position: relative;
       width: 200px;
+      @include at-query($max, 955px) {
+        display: inline-block;
+      }
 
       .indexSale-ribbon {
         width: 100%;
@@ -2903,8 +2929,15 @@ $Satisfy: 'Satisfy', cursive;
       line-height: 95%;
       text-align: center;
       width: 200px;
+      @include at-query($max, 955px) {
+        display: inline-block;
+        margin-left: 20%;
+      }
       @include at-query($min, $medium) {
         margin-top: 30px;
+      }
+      @include at-query($max, 600px) {
+        margin-left: 0;
       }
 
       p {
@@ -3077,7 +3110,7 @@ $Satisfy: 'Satisfy', cursive;
 // }
 
 .large--inline-block {
-  @include at-query ($min, $large) {
+  @include at-query ($min, $preXLarge) {
     display: inline-block;
   }
 }
@@ -3085,6 +3118,9 @@ $Satisfy: 'Satisfy', cursive;
 .index-policy-wrap {
   margin: 0;
   margin-top: 10px;
+  @include at-query($max, 955px) {
+    margin-top: 350px;
+  }
   @include at-query($max, $small) {
     margin-top: 400px;
   }
@@ -3178,7 +3214,6 @@ $Satisfy: 'Satisfy', cursive;
   background-image: url({{ 'about-us-banner.jpg' | asset_url }});
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
   color: white;
   height: 400px;
   @include at-query($min, 1285px) {
@@ -3188,21 +3223,29 @@ $Satisfy: 'Satisfy', cursive;
     line-height: .95;
     letter-spacing: .9px;
     padding-top: 100px;
-    padding-left: 270px;
+    padding-left: 200px;
     width: 60%;
     @include at-query($min, 1285px) {
       padding-top: 100px;
       padding-left: 160px;
     }
+    @include at-query ($max, 987px) {
+      padding-left: 100px;
+      padding-top: 70px;
+      width: 80%;
+    }
     @include at-query($max, $small) {
-      padding-top: 50px;
-      padding-left: 80px;
+      padding-top: 40px;
+      padding-left: 50px;
       width: 90%;
     }
     .about-banner-p {
       font-size: 24px;
       font-weight: 200;
       margin: 0;
+      @include at-query($max, $small) {
+        font-size: 22px;
+      };
     }
     .about-main-header {
       text-align: left;
@@ -3210,7 +3253,7 @@ $Satisfy: 'Satisfy', cursive;
       font-weight: 600;
       margin: 5px 0;
       @include at-query($max, $small) {
-        font-size: 45px;
+        font-size: 35px;
       };
     }
     .about-main-p {
@@ -3218,6 +3261,9 @@ $Satisfy: 'Satisfy', cursive;
       font-weight: 300;
       line-height: 1;
       margin: 0;
+      @include at-query($max, $small) {
+        font-size: 22px;
+      };
     }
   }
 }
@@ -3230,9 +3276,10 @@ $Satisfy: 'Satisfy', cursive;
 .aboutUs-paragraph {
   font-size: 20px;
   margin-bottom: 3%;
-  padding: 0 0 0 200px ;
+  padding: 0 0 0 150px ;
   width: 80%;
-  @include at-query($max, $small) {
+  @include at-query($max, $medium) {
+    padding: 0 30px;
     width: 100%;
   };
 }
@@ -3669,62 +3716,98 @@ $Satisfy: 'Satisfy', cursive;
 // Dr Macz
 */
 
-.macz-main-section {
-  background-image: url({{ 'desk_layout.jpg' | asset_url }});
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  height: 400px;
-  position: relative;
-  @include at-query($min, 1285px) {
-    height: 500px;
-  }
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,.5);
-    z-index: 0;
-  }
-  .macz-text-wrapper {
-    position: absolute;
-    line-height: .95;
-    letter-spacing: .9px;
-    padding-top: 100px;
-    padding-left: 270px;
-    width: 60%;
-    z-index: 3;
+.drmacz {
+  .macz-main-section {
+    background-image: url({{ 'desk_layout.jpg' | asset_url }});
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 400px;
+    position: relative;
     @include at-query($min, 1285px) {
+      height: 500px;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,.5);
+      z-index: 0;
+    }
+    .macz-text-wrapper {
+      position: absolute;
+      line-height: .95;
+      letter-spacing: .9px;
       padding-top: 100px;
-      padding-left: 160px;
-    }
-    @include at-query($max, $small) {
-      padding-top: 50px;
-      padding-left: 80px;
-      width: 90%;
-    }
-    .macz-banner-p {
-      font-size: 24px;
-      font-weight: 200;
-      margin: 0;
-    }
-    .macz-main-header {
-      color: white;
-      text-align: left;
-      font-size: 40px;
-      font-weight: 600;
-      margin: 5px 0;
+      padding-left: 270px;
+      width: 60%;
+      z-index: 3;
+      @include at-query($min, 1285px) {
+        padding-top: 100px;
+        padding-left: 160px;
+      }
+      @include at-query ($max, 987px) {
+        padding-left: 100px;
+        padding-top: 70px;
+      }
       @include at-query($max, $small) {
-        font-size: 45px;
-      };
+        padding-top: 50px;
+        padding-left: 80px;
+        width: 90%;
+      }
+      .macz-banner-p {
+        color: white;
+        font-size: 24px;
+        font-weight: 200;
+        margin: 0;
+      }
+      .macz-main-header {
+        color: white;
+        text-align: left;
+        font-size: 40px;
+        font-weight: 600;
+        margin: 5px 0;
+        @include at-query($max, $small) {
+          font-size: 45px;
+        };
+      }
+      .macz-main-p {
+        color: white;
+        font-size: 24px;
+        font-weight: 300;
+        line-height: 1;
+        margin: 0;
+      }
     }
-    .macz-main-p {
-      font-size: 24px;
-      font-weight: 300;
-      line-height: 1;
-      margin: 0;
+  }
+
+  .maczCollections-wrapper {
+    margin-bottom: 100px;
+    width: 100%;
+  }
+
+  .maczMain-collections {
+    background-color: $colorPrimary;
+    border-radius: 10px;
+    display: inline-block;
+    margin-left: 1%;
+    margin-top: 10px;
+    min-width: 200px;
+    width: 48%;
+
+    .maczMain-link {
+      color: white;
+      .maczMain-img {
+        height: 200px;
+        padding-bottom: 10px;
+        padding-top: 20px;
+      }
+
+      .macz-collectionsHeader {
+        color: white;
+        text-decoration: none;
+      }
     }
   }
 }
@@ -3754,4 +3837,21 @@ $Satisfy: 'Satisfy', cursive;
   -moz-transition: opacity 0.3s ease-in-out;
   -o-transition: opacity 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out;
+}
+
+/*
+// Parallax scrolling
+*/
+
+.macz-main-section, .about-main-section {
+  display: inline-block;
+  background-size: cover;
+  font-size: 16px;
+  width: 100%;
+
+  @include at-query($min, $medium) {
+    background-attachment: fixed;
+    background-position: top;
+    background-repeat: no-repeat;
+  }
 }
