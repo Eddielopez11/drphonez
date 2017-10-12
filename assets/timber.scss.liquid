@@ -3788,16 +3788,36 @@ $Satisfy: 'Satisfy', cursive;
   }
 
   .maczMain-collections {
-    background-color: $colorPrimary;
+    background-color: lighten($colorPrimary, 5%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     border-radius: 10px;
     display: inline-block;
     margin-left: 1%;
     margin-top: 10px;
+    position: relative;
     min-width: 200px;
-    width: 48%;
+    height: 200px;
+    width: 30%;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,.5);
+      z-index: 0;
+    }
 
     .maczMain-link {
       color: white;
+      font-size: 20px;
+      margin-top: 80px;
+      position: absolute;
+      width: 100%;
+      z-index: 3;
+      -webkit-text-stroke: .2px black;
       .maczMain-img {
         height: 200px;
         padding-bottom: 10px;
