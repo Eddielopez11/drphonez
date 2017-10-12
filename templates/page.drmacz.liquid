@@ -16,9 +16,9 @@
         {% for collection in collections %}
 
           {% if collection.description contains "drmacz" %}
-            <div class="maczMain-collections">
+            <div class="maczMain-collections" style="background-image: url({{collection | img_url: 'large'}});">
               <a href="{{collection.url}}" class="grid__image maczMain-link">
-              <img class="maczMain-img" src="{{collection | img_url: 'large'}}" alt="">
+              <!-- <img class="maczMain-img" src="{{collection | img_url: 'large'}}" alt=""> -->
                 <h4 class="text-center macz-colletionsHeader">{{collection.title}}</h4>
               </a>
             </div>
