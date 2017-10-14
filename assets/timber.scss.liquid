@@ -3800,6 +3800,11 @@ $Satisfy: 'Satisfy', cursive;
     min-width: 200px;
     height: 200px;
     width: 30%;
+
+    @include at-query($max, $small) {
+      margin-left: 50px;
+      width: 350px;
+    }
     &::after {
       content: '';
       position: absolute;
