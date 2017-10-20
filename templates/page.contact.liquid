@@ -71,6 +71,14 @@
 
           {{ form.errors | default_errors }}
 
+          <label for="ContactFormReason">What can we help you with?</label>
+          <select id="ContactFormReason" name="contact[Reason]">
+            <option>Quote</option>
+            <<option>Phonebulance Appointment</option>
+            <option>Warranty</option>
+            <option>Other</option>
+          </select>
+
           {% assign name_attr = 'contact.form.name' | t | handle %}
           <label for="ContactFormName" class="hidden-label">{{ 'contact.form.name' | t }}</label>
           <input type="text" id="ContactFormName" class="input-full" name="contact[{{ name_attr }}]" placeholder="{{ 'contact.form.name' | t }}" autocapitalize="words" value="{% if form[name_attr] %}{{ form[name_attr] }}{% elsif customer %}{{ customer.name }}{% endif %}">
