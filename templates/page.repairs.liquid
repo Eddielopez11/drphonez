@@ -7,7 +7,7 @@
 
       {% for collection in collections %}
 
-          {% if collection.title contains page.title %}
+          {% if collection.description contains "repairs" and collection.title contains page.title %}
           <div class="grid__item large--one-quarter medium-down--one-half">
             <a href="{{collection.url}}" class="grid__image">
               <img class="repairs-img" src="{{collection | img_url: 'large'}}" alt="">
