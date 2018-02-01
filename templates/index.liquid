@@ -6,74 +6,26 @@
   More info on global variables (available on all templates):
     - http://docs.shopify.com/themes/liquid-variables/global
 {% endcomment %}
-<div class="index-wrapper">
-  <!-- <div class="indexBanner">
-  </div> -->
-  <div class="indexBanner-left">
-    <div class="indexSatisfaction">
-      <p class="indexSatisfaction-main">Most customer satisfying repair shop in San Antonio...</p>
-      <p class="indexSatisfaction-second">Our Reviews are our Trademark!</p>
-    </div>
+<div class="grid wrapper-custom">
+  <div class="grid__item large--nine-twelfths push--large--one-twelfth medium-down--eleven-twelfths grid-nopadding">
+    <h1 class="page-mainHeader text-center">Our Repairs</h1>
+    <div class="grid-uniform collections-wrapper flex-wrapper">
 
-    <div class="indexVideo">
-      <iframe src="https://www.youtube.com/embed/J1XzXFEBIQ8" frameborder="0" allowfullscreen></iframe>
-    </div>
-  </div>
-  <div class="indexBanner">
-    <a class="indexBanner-link" href="https://drphonez.com/pages/techbulance">
-      <p class="indexBanner-header">FREE OF CHARGE!<br><span class="indexBanner-span">Only this year!!!</span></p>
-    </a>
-    <div class="indexBanner-imgwrapper">
-      <img  class="indexBanner-img" src="{{ 'techbulance.png' | asset_url }}" alt="Image of Techbulance Mobile Repair Van">
-    </div>
-    <p class="indexBanner-footer">SAVE YOUR TIME, WE COME TO YOU!</p>
-  </div>
-  <div class="indexBanner-right">
-    <div class="indexSale">
-      <img  class="indexSale-ribbon" src="{{ 'ribbonResized.png' | asset_url }}" alt="">
-      <span class="indexSale-ribbonText">Trip Charge:<br>
-        <span class="indexSale-dollar">$19
-          <span class="indexSale-cents">99
-          </span>
-        </span><br>
-        <span class="indexSale-newCost">FREE</span>
-      </span>
-    </div>
-    <div class="temperedGlass-promo-wrapper">
-      <p>Free Tempered Glass</p>
-      <div class="temperedGlass-promo">
-        <img class="tglass-phone" src="{{ 'iPhoneResized.png' | asset_url }}" alt="">
-        <img  class="tglass-img" src="{{ 'tglassResized.png' | asset_url }}" alt="Tempered glass for phone">
+      {% for collection in collections %}
+
+      {% if collection.description contains "repairs" %}
+      <div class="grid__item large--one-quarter medium-down--one-half">
+        <a href="{{collection.url}}" class="grid__image">
+          <img class="repairs-img" src="{{collection | img_url: 'large'}}" alt="">
+          <h4 class="text-center">{{collection.title}}</h4>
+        </a>
       </div>
-      <p>With Phonebulance Repair!</p>
+      {% endif %}
+
+
+
+      {% endfor %}
+
     </div>
-  </div>
-</div>
-<div class="grid--full index-policy-wrap">
-  <div class="index-protection-header">
-    <p class="index-customer-value">We Value our Customers</p>
-  </div>
-  <div class="grid__item large--one-third index-single-policy">
-    <a class="index-policy-link" href="http://drphonez.com/pages/protection-plan">
-      <div class="index-valuedcx-imgdiv">
-        <img class="index-valuedcx-img" src="{{ 'savingsResized.png' | asset_url }}" alt="">
-      </div>
-      <p class="index-valuedcx-header">Protection Plan</p>
-      <p class="index-valuedcx-p">For any accidents in the future, pay an extra fee when you get a screen replacement and save over 50% on your next single repair.</p>
-    </a>
-  </div>
-  <div class="grid__item large--one-third index-single-policy">
-    <div class="index-valuedcx-imgdiv">
-      <img class="index-valuedcx-img" src="{{ 'nurseResized.png' | asset_url }}" alt="">
-    </div>
-    <p class="index-valuedcx-header">Associates that Care</p>
-    <p class="index-valuedcx-p">We've been there. Thats why our associates are here to get you the best experience.</p>
-  </div>
-  <div class="grid__item large--one-third index-single-policy">
-    <div class="index-valuedcx-imgdiv">
-      <img class="index-valuedcx-img" src="{{ 'ambulanceResized.png' | asset_url }}" alt="">
-    </div>
-    <p class="index-valuedcx-header">After-Repair Care</p>
-    <p class="index-valuedcx-p">If there are any issues with your repair. We will send our Phonebulance over free of charge.</p>
   </div>
 </div>
