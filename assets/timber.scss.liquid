@@ -1033,6 +1033,10 @@ hr {
 .rte {
   margin-bottom: $gutter / 2;
 
+  @include at-query($max, $small){
+    padding: 0 20px;
+  }
+
   a {
     text-decoration: underline;
   }
@@ -3434,15 +3438,49 @@ $Satisfy: 'Satisfy', cursive;
 .location-pageinfo {
   display: inline-block;
   margin-left: 5%;
+  position: relative;
   vertical-align: top;
-  width: 30%;
+  height: 500px;
+  width: 40%;
   @include at-query($max, $small){
+    height: 450px;
+  }
+  @include at-query($max, $medium){
+    height: 620px;
     width: 100%;
+  }
+  @include at-query($min, $preLarge){
+    height: 550px;
+    min-width: 30%;
+  }
+  @include at-query($min, $xlarge){
+    height: 600px;
+    width: 30%;
   }
 }
 
 .location-main-header {
   font-family: $Yantra, Arial;
+  margin-bottom: 0;
+}
+
+.location_img {
+  max-height: 380px;
+  width: 90%;
+  @include at-query($min, $small){
+    max-width: 390px;
+  }
+  @include at-query($min, $medium){
+    max-height: 300px;
+  }
+  @include at-query($min, $preLarge){
+    position: absolute;
+    bottom: 0;
+    max-width: 360px;
+  }
+  @include at-query($min, $xlarge){
+    max-width: 400px;
+  }
 }
 
 .location-info-headers {
@@ -3450,7 +3488,6 @@ $Satisfy: 'Satisfy', cursive;
   font-family:$Yantra, Arial;
   font-size: 21px;
   font-weight: 500;
-  margin-top: 15px;
 }
 
 .location-info {
@@ -3472,10 +3509,7 @@ $Satisfy: 'Satisfy', cursive;
 .location-gmap {
   display: inline-block;
   margin-left: 2%;
-  width: 60%;
-  @include at-query($max, $medium){
-    width: 60%;
-  }
+  width: 50%;
   @include at-query($max, $medium){
     margin-top: 20px;
     width: 100%;
