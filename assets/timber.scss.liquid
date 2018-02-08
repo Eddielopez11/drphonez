@@ -3874,6 +3874,97 @@ $Satisfy: 'Satisfy', cursive;
 }
 
 /*
+// Cart Page
+*/
+
+.tempModal {
+  background-color: rgba(10,10,10,.7);
+  height: 3000px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+
+.tempSpecial--container{
+  background: rgba(245,245,245,1);
+  border-radius: 15px;
+  margin: auto;
+  margin-top: 6%;
+  position: relative;
+  height: 400px;
+  width: 700px;
+  @include at-query($max, $medium) {
+    height: 560px;
+    width: 380px;
+  }
+}
+
+.closeModal {
+  background-color: $colorSecondary;
+  border-radius: 50%;
+  color: white;
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.closeModal:active {
+  background-color: lighten($colorSecondary, 10%);
+  box-shadow: 0 0.125em #666666;
+  transform: translateY(0.25em);
+}
+
+.specialTemp {
+  position: relative;
+}
+
+.specialTemp--ribbon {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.specialTemp--image {
+  margin-left: 100px;
+  margin-top: 30px;
+  @include at-query($max, $medium) {
+    margin-left: 120px;
+  }
+}
+
+.offerHeader{
+  color: $colorSecondary;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.offerHeader, .offerHeader2 {
+  text-align: center;
+}
+
+.tempSpecial--leftHalf {
+  display: inline-block;
+  width: 49%;
+  @include at-query($max, $medium) {
+    display: block;
+    width: 98%;
+  }
+}
+
+.tempSpecial--rightHalf {
+  display: inline-block;
+  width: 49%;
+  @include at-query($max, $medium) {
+    display: block;
+    margin-left: 25%;
+    width: 98%;
+  }
+}
+
+/*
 // Reveal Module
 */
 
