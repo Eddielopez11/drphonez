@@ -18,7 +18,7 @@
     {% if item.product.title contains 'iPhone' or item.product.title contains 'Samsung' %}
     <div class="tempModal" id="tempModal">
       <div class="tempSpecial--container">
-        <button class="closeModal" type="button" name="button">X</button>
+        <button class="closeModal xBTN" type="button" name="button">X</button>
         {% assign specialTempered = all_products['phone-tempered-glass-special'] %}
         <div class="tempSpecial--leftHalf">
           <a href="{{ specialTempered.url | within: collection.all_products }}" class="cart__image">
@@ -104,7 +104,10 @@
                     <button type="submit" name="add" id="AddToCart" class="btn">
                       <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
                     </button>
+
+                    <button class="closeModal btn--secondary offerNoThx" type="button" name="button">No Thanks</button>
                   </form>
+
 
                 </div>
 
