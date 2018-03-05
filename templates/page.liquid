@@ -1,9 +1,11 @@
 <!-- /templates/page.liquid -->
-<div class="grid">
 
-  <div class="grid__item large--two-thirds push--large--one-sixth">
-
+<div class="grid wrapper-custom">
+  <div class="grid__item large--ten-twelfths push--large--one-twelfth medium-down--eleven-twelfths grid-nopadding">
+    {% comment %}
     <h1 class="text-center page-mainHeader">{{ page.title }}</h1>
+    {% endcomment %}
+    <h1 class="page-mainHeader text-center">{{ page.title }}</h1>
 
     {% comment %}
       Regular page content goes here.
